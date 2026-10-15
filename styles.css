@@ -470,3 +470,8 @@ button:focus-visible,a:focus-visible {outline:2px solid var(--lake);outline-offs
 .trip-loader__help-body a { color: var(--lake); font-weight: 650; }
 .trip-loader__help code { background: var(--lake-soft); padding: 1px 6px; border-radius: 6px; font-size: 12.5px; }
 .trip-loader__tip { margin: 8px 0 0; padding: 8px 10px; border-radius: 10px; background: var(--paper); color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+/* 记账跳转（trip-loader.js） */
+#external-ledger-link[hidden], .ledger-bridge[hidden] { display: none !important; }
+.ledger-bridge .trip-loader__status { margin-top: 0; }
+a.trip-loader__button { text-decoration: none; }
