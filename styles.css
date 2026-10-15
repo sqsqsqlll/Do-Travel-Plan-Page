@@ -447,3 +447,20 @@ button:focus-visible,a:focus-visible {outline:2px solid var(--lake);outline-offs
   .is-daily .transport-pin svg {width:13px;height:13px;}
   #map-dialog-content .daily-fullscreen {width:100%;min-width:0;}
 }
+
+/* ---------- 行程导入（trip-loader.js） ---------- */
+.trip-loader [hidden] { display: none !important; }
+.trip-loader { padding-top: 0; }
+.trip-loader__card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 22px 20px; box-shadow: var(--shadow); }
+.trip-loader__card h2 { margin: 4px 0 12px; font-size: 24px; letter-spacing: -0.02em; }
+.trip-loader__steps { margin: 0 0 18px; padding-left: 20px; color: var(--muted); line-height: 1.8; font-size: 15px; }
+.trip-loader__steps a { color: var(--lake); font-weight: 650; }
+.trip-loader__steps code, .trip-loader__note code { background: var(--lake-soft); color: var(--ink); padding: 1px 6px; border-radius: 6px; font-size: 13px; }
+.trip-loader__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.trip-loader__button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 700; cursor: pointer; }
+.trip-loader__button:focus-within { outline: 3px solid var(--lake-soft); outline-offset: 2px; }
+.trip-loader__note { margin: 14px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.trip-loader__error { margin: 12px 0 0; color: var(--warning); font-size: 14px; font-weight: 650; }
+.trip-loader__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 10px 14px; border-radius: var(--radius-md); background: var(--lake-soft); color: var(--ink); font-size: 14px; }
+.trip-loader__bar span { margin-right: auto; font-weight: 650; }
+.trip-loader__link { border: 0; background: none; padding: 0; color: var(--lake); font: inherit; font-weight: 700; cursor: pointer; text-decoration: underline; }

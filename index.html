@@ -13,7 +13,8 @@
   <script src="runtime-storage.js?v=20260910-2" defer></script>
   <script src="overview-map.js?v=20260910-2" defer></script>
   <script src="route-ui.js?v=20260910-2" defer></script>
-  <script src="app.js?v=20260910-4" defer></script>
+  <script src="trip-loader.js?v=20261015-1" defer></script>
+  <script src="app.js?v=20261015-1" defer></script>
   <script src="ticket-pdf-preview.js?v=20260910-2" defer></script>
   <script src="ledger.js?v=20260910-3" defer></script>
   <script src="site-navigation.js?v=20260910-2" defer></script>
@@ -42,6 +43,28 @@
       <div class="hero__eyebrow" id="trip-eyebrow"></div>
       <h1 id="trip-title">正在载入旅程</h1>
       <p class="hero__date" id="trip-date"></p>
+    </section>
+
+    <section class="section trip-loader" id="trip-loader" aria-labelledby="trip-loader-title" hidden>
+      <div class="trip-loader__card" id="trip-loader-empty" hidden>
+        <p class="section-kicker">START HERE</p>
+        <h2 id="trip-loader-title">导入一趟行程</h2>
+        <ol class="trip-loader__steps">
+          <li>在 <a id="trip-loader-ledger-link" href="https://sqsqsqlll.github.io/travelexpensesssss/" target="_blank" rel="noopener">旅游AA账本</a> 里整理预算、地点和日期；</li>
+          <li>打开「⚙ 管理」，在对应行程上点「🗺 行程页」，下载 <code>trip-data.json</code>；</li>
+          <li>回到这里点下面的按钮选择这个文件。</li>
+        </ol>
+        <div class="trip-loader__actions">
+          <label class="trip-loader__button">📥 选择 trip-data.json<input type="file" id="trip-loader-file" accept=".json,application/json" hidden></label>
+        </div>
+        <p class="trip-loader__note">导入的行程只保存在当前浏览器。想让所有人打开网址都看到，把这个文件替换仓库根目录的 <code>trip-data.json</code> 即可。</p>
+        <p class="trip-loader__error" id="trip-loader-error" role="alert" hidden></p>
+      </div>
+      <div class="trip-loader__bar" id="trip-loader-bar" hidden>
+        <span>📍 正在显示本机导入的行程</span>
+        <label class="trip-loader__link">更换<input type="file" id="trip-loader-file-replace" accept=".json,application/json" hidden></label>
+        <button type="button" class="trip-loader__link" id="trip-loader-clear">清除，恢复默认</button>
+      </div>
     </section>
 
     <section class="section flights-section" id="flights" aria-labelledby="flights-title" data-module="flights" hidden>

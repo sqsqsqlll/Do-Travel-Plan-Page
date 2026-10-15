@@ -954,11 +954,22 @@ function preloadDefaultRouteMap() {
   state.routeMapPreload = image;
 }
 
+/* 行程数据来源：浏览器中导入的行程（trip-loader.js 写入）优先，否则读取仓库中的 trip-data.json */
+async function loadTripData() {
+  const local = window.TripLoader?.readLocalTrip?.();
+  if (local) {
+    window.TRIP_DATA_SOURCE = "local";
+    return local;
+  }
+  const response = await fetch("trip-data.json", { cache: "no-store" });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  window.TRIP_DATA_SOURCE = "repository";
+  return response.json();
+}
+
 async function init() {
   try {
-    const response = await fetch("trip-data.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    state.data = await response.json();
+    state.data = await loadTripData();
     state.config = normalizeTripConfig(state.data.config);
     window.TRAVEL_PLAN_CONFIG = state.config;
     window.TRAVEL_PLAN_DATA = state.data;
