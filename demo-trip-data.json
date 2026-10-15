@@ -1,0 +1,1074 @@
+{
+  "$schema": "./schemas/trip-data.schema.json",
+  "schemaVersion": "2.0-lite",
+  "config": {
+    "schemaVersion": "1.0.0",
+    "modules": {
+      "flights": true,
+      "overview": true,
+      "itinerary": true,
+      "todo": true,
+      "driving": true,
+      "ledger": true
+    },
+    "language": "zh-CN",
+    "persistence": {
+      "mode": "local"
+    }
+  },
+  "metadata": {
+    "tripId": "demo-kansai-2026",
+    "title": "示例行程 · 关西 4 日",
+    "language": "zh-CN",
+    "timeZone": "Asia/Tokyo",
+    "assets": {
+      "routeMaps": [
+        "assets/maps/templates/template-04-urban.webp"
+      ]
+    },
+    "demo": true
+  },
+  "trip": {
+    "status": "planned",
+    "startDate": "2026-11-20",
+    "endDate": "2026-11-23",
+    "dayCount": 4,
+    "nightCountAway": 3,
+    "countries": [
+      {
+        "code": "JP",
+        "name": "Japan",
+        "nameZh": "日本",
+        "nameEn": "Japan"
+      }
+    ],
+    "primaryDestinationCountries": [
+      "JP"
+    ],
+    "citiesAndAreas": [
+      "京都",
+      "奈良",
+      "大阪"
+    ],
+    "routeSummary": "京都 → 奈良 → 大阪",
+    "groupSize": 3,
+    "heroTitle": "关西 4 日（示例）",
+    "heroEyebrow": "KYOTO · NARA · OSAKA"
+  },
+  "flightJourneys": [
+    {
+      "id": "out",
+      "title": "去程"
+    },
+    {
+      "id": "back",
+      "title": "回程"
+    }
+  ],
+  "flights": [
+    {
+      "id": "f1",
+      "journeyId": "out",
+      "sequence": 1,
+      "flightNumber": "MU515",
+      "airline": {
+        "nameZh": "东方航空",
+        "name": "China Eastern"
+      },
+      "departure": {
+        "airportCode": "PVG",
+        "city": "上海浦东",
+        "date": "2026-11-20",
+        "time": "09:10",
+        "utcOffset": "+08:00"
+      },
+      "arrival": {
+        "airportCode": "KIX",
+        "city": "大阪关西",
+        "date": "2026-11-20",
+        "time": "12:40",
+        "utcOffset": "+09:00"
+      }
+    },
+    {
+      "id": "f2",
+      "journeyId": "back",
+      "sequence": 1,
+      "flightNumber": "MU516",
+      "airline": {
+        "nameZh": "东方航空",
+        "name": "China Eastern"
+      },
+      "departure": {
+        "airportCode": "KIX",
+        "city": "大阪关西",
+        "date": "2026-11-23",
+        "time": "18:30",
+        "utcOffset": "+09:00"
+      },
+      "arrival": {
+        "airportCode": "PVG",
+        "city": "上海浦东",
+        "date": "2026-11-23",
+        "time": "20:20",
+        "utcOffset": "+08:00"
+      }
+    }
+  ],
+  "accommodations": [
+    {
+      "name": "京都站前酒店（示例）",
+      "checkIn": "2026-11-20",
+      "nights": 2
+    },
+    {
+      "name": "大阪难波酒店（示例）",
+      "checkIn": "2026-11-22",
+      "nights": 1
+    }
+  ],
+  "groundTransport": {
+    "rentalCar": {
+      "company": "示例租车",
+      "vehicle": {
+        "example": "Toyota Yaris 或同级",
+        "class": "紧凑型 · 5 座"
+      },
+      "price": {
+        "currency": "JPY",
+        "payAtCounter": 9800
+      },
+      "rentalPeriodDays": 1,
+      "unlimitedKilometers": true,
+      "pickup": {
+        "date": "2026-11-21",
+        "time": "09:00",
+        "utcOffset": "+09:00",
+        "location": "京都站八条口门店",
+        "address": "京都市南区（示例地址）"
+      },
+      "dropoff": {
+        "date": "2026-11-21",
+        "time": "19:00",
+        "utcOffset": "+09:00",
+        "timeZoneLabel": "日本时间 JST",
+        "vehicleReturnPoint": "京都站八条口门店",
+        "deadlineWarning": "超时会按小时加收费用，请预留加油时间。",
+        "recommendedArrivalTime": "18:30"
+      },
+      "insurance": [
+        "基本保险已含",
+        "NOC 免责补偿（建议加购）"
+      ]
+    },
+    "rentalChecklist": [
+      "取车前拍摄车身四周照片",
+      "确认 ETC 卡与导航语言",
+      "还车前加满油并保留收据"
+    ],
+    "drivingNotes": [
+      "日本靠左行驶",
+      "市区限速通常 40–60 km/h"
+    ],
+    "drivingReferenceLinks": [
+      {
+        "label": "JAF 自驾指南",
+        "url": "https://jaf.or.jp/"
+      }
+    ],
+    "plannedRoadLegs": [],
+    "publicTransitAndRail": []
+  },
+  "days": [
+    {
+      "id": "d1",
+      "day": 1,
+      "date": "2026-11-20",
+      "title": "抵达关西 · 京都",
+      "locations": [
+        "大阪",
+        "京都"
+      ],
+      "schedule": [
+        {
+          "id": "d1-1",
+          "time": "12:40",
+          "type": "flight",
+          "text": "✈️ 抵达关西国际机场"
+        },
+        {
+          "id": "d1-2",
+          "time": "14:00",
+          "type": "transfer",
+          "text": "🚄 Haruka 特急前往京都站",
+          "placeIds": [
+            "kyoto"
+          ]
+        },
+        {
+          "id": "d1-3",
+          "time": "16:30",
+          "type": "attraction",
+          "text": "🏛 清水寺 · 看夕阳",
+          "placeIds": [
+            "kiyomizu"
+          ]
+        }
+      ],
+      "costReferences": [
+        {
+          "item": "Haruka 特急",
+          "currency": "JPY",
+          "amount": 3600
+        },
+        {
+          "item": "清水寺门票",
+          "currency": "JPY",
+          "amount": 500
+        }
+      ],
+      "notes": [
+        "示例：每天的时间线、费用和导航链接都会出现在这里。"
+      ]
+    },
+    {
+      "id": "d2",
+      "day": 2,
+      "date": "2026-11-21",
+      "title": "自驾奈良一日游",
+      "locations": [
+        "京都",
+        "奈良"
+      ],
+      "schedule": [
+        {
+          "id": "d2-1",
+          "time": "07:30",
+          "type": "attraction",
+          "text": "⛩ 伏见稻荷大社 千本鸟居",
+          "placeIds": [
+            "fushimi"
+          ]
+        },
+        {
+          "id": "d2-2",
+          "time": "09:00",
+          "type": "drive",
+          "text": "🚗 京都站取车，前往奈良"
+        },
+        {
+          "id": "d2-3",
+          "time": "11:00",
+          "type": "attraction",
+          "text": "🦌 奈良公园 · 东大寺",
+          "placeIds": [
+            "nara"
+          ]
+        },
+        {
+          "id": "d2-4",
+          "time": "18:30",
+          "type": "return",
+          "text": "🚗 返回京都还车",
+          "placeIds": [
+            "kyoto"
+          ]
+        }
+      ],
+      "costReferences": [
+        {
+          "item": "租车",
+          "currency": "JPY",
+          "amount": 9800
+        },
+        {
+          "item": "东大寺门票",
+          "currency": "JPY",
+          "amount": 800
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "d3",
+      "day": 3,
+      "date": "2026-11-22",
+      "title": "日本环球影城",
+      "locations": [
+        "大阪"
+      ],
+      "schedule": [
+        {
+          "id": "d3-1",
+          "time": "08:00",
+          "type": "transfer",
+          "text": "🚄 京都 → 大阪（JR 新快速）"
+        },
+        {
+          "id": "d3-2",
+          "time": "09:30",
+          "type": "attraction",
+          "text": "🎢 日本环球影城",
+          "placeIds": [
+            "usj"
+          ]
+        },
+        {
+          "id": "d3-3",
+          "time": "20:00",
+          "type": "restaurant",
+          "text": "🍜 道顿堀 · 一兰拉面",
+          "placeIds": [
+            "osaka"
+          ]
+        }
+      ],
+      "costReferences": [
+        {
+          "item": "USJ 门票",
+          "currency": "JPY",
+          "amount": 8900
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "d4",
+      "day": 4,
+      "date": "2026-11-23",
+      "title": "大阪 · 返程",
+      "locations": [
+        "大阪"
+      ],
+      "schedule": [
+        {
+          "id": "d4-1",
+          "time": "10:00",
+          "type": "attraction",
+          "text": "🛍 道顿堀 · 心斋桥购物",
+          "placeIds": [
+            "osaka"
+          ]
+        },
+        {
+          "id": "d4-2",
+          "time": "15:30",
+          "type": "transfer",
+          "text": "🚄 南海特急前往关西机场",
+          "placeIds": [
+            "kix"
+          ]
+        },
+        {
+          "id": "d4-3",
+          "time": "18:30",
+          "type": "flight",
+          "text": "✈️ MU516 返回上海"
+        }
+      ],
+      "costReferences": [
+        {
+          "item": "南海特急 Rapi:t",
+          "currency": "JPY",
+          "amount": 1450
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "places": [
+    {
+      "id": "kix",
+      "name": "Kansai International Airport",
+      "nameZh": "关西国际机场",
+      "category": "airport",
+      "cityOrArea": "大阪",
+      "navigation": {
+        "query": "Kansai International Airport, Japan"
+      }
+    },
+    {
+      "id": "kyoto",
+      "name": "Kyoto Station",
+      "nameZh": "京都站",
+      "category": "city",
+      "cityOrArea": "京都",
+      "navigation": {
+        "query": "Kyoto Station, Japan"
+      }
+    },
+    {
+      "id": "kiyomizu",
+      "name": "Kiyomizu-dera",
+      "nameZh": "清水寺",
+      "category": "attraction",
+      "cityOrArea": "京都",
+      "navigation": {
+        "query": "Kiyomizu-dera, Japan"
+      }
+    },
+    {
+      "id": "fushimi",
+      "name": "Fushimi Inari Taisha",
+      "nameZh": "伏见稻荷大社",
+      "category": "attraction",
+      "cityOrArea": "京都",
+      "navigation": {
+        "query": "Fushimi Inari Taisha, Japan"
+      }
+    },
+    {
+      "id": "nara",
+      "name": "Nara Park",
+      "nameZh": "奈良公园",
+      "category": "attraction",
+      "cityOrArea": "奈良",
+      "navigation": {
+        "query": "Nara Park, Japan"
+      }
+    },
+    {
+      "id": "osaka",
+      "name": "Dotonbori",
+      "nameZh": "道顿堀",
+      "category": "attraction",
+      "cityOrArea": "大阪",
+      "navigation": {
+        "query": "Dotonbori, Japan"
+      }
+    },
+    {
+      "id": "usj",
+      "name": "Universal Studios Japan",
+      "nameZh": "日本环球影城",
+      "category": "attraction",
+      "cityOrArea": "大阪",
+      "navigation": {
+        "query": "Universal Studios Japan, Japan"
+      }
+    }
+  ],
+  "restaurants": [
+    {
+      "name": "一兰拉面",
+      "city": "大阪",
+      "cuisine": "拉面"
+    }
+  ],
+  "bookingsAndTickets": [],
+  "ticketPlanning": {
+    "statusStorage": "local",
+    "statusStorageNote": "门票状态默认只保存在当前浏览器。",
+    "items": [
+      {
+        "id": "t-usj",
+        "day": 3,
+        "name": "日本环球影城 1 日券",
+        "requirement": "advance-required",
+        "guidance": [
+          "示例：建议官网或授权平台提前购买"
+        ],
+        "officialUrl": "https://www.usj.co.jp/",
+        "scheduleItemIds": [
+          "d3-2"
+        ]
+      },
+      {
+        "id": "t-todaiji",
+        "day": 2,
+        "name": "东大寺大佛殿",
+        "requirement": "needs-confirmation",
+        "guidance": [
+          "现场购票"
+        ],
+        "scheduleItemIds": [
+          "d2-3"
+        ]
+      }
+    ]
+  },
+  "preTrip": {
+    "packingItems": [
+      {
+        "id": "p1",
+        "text": "护照与签证"
+      },
+      {
+        "id": "p2",
+        "text": "国际驾照译本（自驾用）"
+      },
+      {
+        "id": "p3",
+        "text": "购买 USJ 门票"
+      },
+      {
+        "id": "p4",
+        "text": "日元现金与交通卡"
+      }
+    ],
+    "preparationsExplicitlyMentioned": [],
+    "missingNote": ""
+  },
+  "mapLinks": {
+    "providedGoogleMapsLinks": [],
+    "note": "",
+    "cityLevelNavigationDisabled": false,
+    "navigationPolicy": {
+      "noNavigationTypes": [
+        "flight",
+        "note",
+        "rest"
+      ],
+      "selfNavigationTypes": [
+        "drive",
+        "return",
+        "transfer",
+        "check-in",
+        "check-out",
+        "restaurant",
+        "attraction",
+        "walk",
+        "hike"
+      ]
+    },
+    "navigationPlaces": []
+  },
+  "issuesAndUncertainties": [],
+  "map": {
+    "schemaVersion": "1.0-lite",
+    "mapMode": "template-auto",
+    "templateId": "auto",
+    "region": {
+      "id": "jp",
+      "label": "日本 · 关西",
+      "countryCode": "JP"
+    },
+    "disclaimer": "本图仅表达地点的相对方位与路线顺序，不代表真实比例或精确地理边界。",
+    "places": [
+      {
+        "id": "kix",
+        "name": "Kansai International Airport",
+        "nameZh": "关西国际机场",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.4347,
+          "lng": 135.2441
+        }
+      },
+      {
+        "id": "kyoto",
+        "name": "Kyoto Station",
+        "nameZh": "京都站",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.9858,
+          "lng": 135.7588
+        }
+      },
+      {
+        "id": "kiyomizu",
+        "name": "Kiyomizu-dera",
+        "nameZh": "清水寺",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.9949,
+          "lng": 135.785
+        }
+      },
+      {
+        "id": "fushimi",
+        "name": "Fushimi Inari Taisha",
+        "nameZh": "伏见稻荷大社",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.9671,
+          "lng": 135.7727
+        }
+      },
+      {
+        "id": "nara",
+        "name": "Nara Park",
+        "nameZh": "奈良公园",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.6851,
+          "lng": 135.843
+        }
+      },
+      {
+        "id": "osaka",
+        "name": "Dotonbori",
+        "nameZh": "道顿堀",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.6687,
+          "lng": 135.5013
+        }
+      },
+      {
+        "id": "usj",
+        "name": "Universal Studios Japan",
+        "nameZh": "日本环球影城",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.6654,
+          "lng": 135.4323
+        }
+      }
+    ],
+    "routes": [
+      {
+        "day": 1,
+        "placeIds": [
+          "kix",
+          "kyoto",
+          "kiyomizu"
+        ]
+      },
+      {
+        "day": 2,
+        "placeIds": [
+          "fushimi",
+          "nara",
+          "kyoto"
+        ]
+      },
+      {
+        "day": 3,
+        "placeIds": [
+          "kyoto",
+          "usj",
+          "osaka"
+        ]
+      },
+      {
+        "day": 4,
+        "placeIds": [
+          "osaka",
+          "kix"
+        ]
+      }
+    ],
+    "dailyRoutes": []
+  },
+  "routeMap": {
+    "defaultRegionId": "jp",
+    "regions": [
+      {
+        "id": "jp",
+        "label": "日本 · 关西",
+        "countryCode": "JP",
+        "scope": "template-schematic",
+        "mapMode": "frozen-template",
+        "templateId": "urban-radial",
+        "mapModeReason": "dense-place-cluster",
+        "mapModeMetrics": {
+          "placeCount": 7,
+          "geoPlaceCount": 7,
+          "widthKm": 54.61,
+          "heightKm": 62.18,
+          "spanKm": 79.53,
+          "averageNearestKm": 11.76,
+          "components": 1,
+          "largestLegKm": 77.26,
+          "jumpRatio": 2.25
+        },
+        "days": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "canvas": {
+          "width": 1448,
+          "height": 1086
+        },
+        "projection": {
+          "type": "relative-schematic",
+          "bounds": null
+        },
+        "baseImage": "assets/maps/templates/template-04-urban.webp",
+        "title": "日本 · 关西 · 旅行路线",
+        "ariaLabel": "日本 · 关西模板化旅行路线示意图，共4天",
+        "disclaimer": "本图仅表达地点的相对方位与路线顺序，不代表真实比例或精确地理边界。",
+        "heading": {
+          "text": "日本 · 关西",
+          "x": 33,
+          "y": 105,
+          "size": 40
+        },
+        "legend": {
+          "x": 35,
+          "y": 168,
+          "gap": 43
+        },
+        "annotations": [],
+        "routes": [
+          {
+            "day": 1,
+            "color": "#397dc1",
+            "placeIds": [
+              "kix",
+              "kyoto",
+              "kiyomizu"
+            ],
+            "paths": [
+              "M596.43 810.55 C701.5 602.0 831.5 410.2 978.61 246.62 C1013.7 244.8 1045.5 233.7 1072.19 213.85"
+            ],
+            "overviewPaths": [
+              "M596.43 810.55 C701.5 602.0 831.5 410.2 978.61 246.62 C1013.7 244.8 1045.5 233.7 1072.19 213.85"
+            ]
+          },
+          {
+            "day": 2,
+            "color": "#e77e22",
+            "placeIds": [
+              "fushimi",
+              "nara",
+              "kyoto"
+            ],
+            "paths": [
+              "M1053.51 310.16 C1042.4 398.3 1056.0 482.4 1093.57 557.51 C1026.3 462.2 987.3 356.5 978.61 246.62"
+            ],
+            "overviewPaths": [
+              "M1053.51 310.16 C1042.4 398.3 1056.0 482.4 1093.57 557.51 C1026.3 462.2 987.3 356.5 978.61 246.62"
+            ]
+          },
+          {
+            "day": 3,
+            "color": "#618344",
+            "placeIds": [
+              "kyoto",
+              "usj",
+              "osaka"
+            ],
+            "paths": [
+              "M978.61 246.62 C918.7 377.4 834.7 490.3 731.56 578.65 C766.0 586.6 799.8 584.7 831.02 572.86"
+            ],
+            "overviewPaths": [
+              "M978.61 246.62 C918.7 377.4 834.7 490.3 731.56 578.65 C766.0 586.6 799.8 584.7 831.02 572.86"
+            ]
+          },
+          {
+            "day": 4,
+            "color": "#209aaa",
+            "placeIds": [
+              "osaka",
+              "kix"
+            ],
+            "paths": [
+              "M831.02 572.86 C729.9 632.6 650.1 713.4 596.43 810.55"
+            ],
+            "overviewPaths": [
+              "M831.02 572.86 C729.9 632.6 650.1 713.4 596.43 810.55"
+            ]
+          }
+        ],
+        "places": [
+          {
+            "id": "kix",
+            "x": 596.43,
+            "y": 810.55,
+            "color": "#397dc1",
+            "tx": 628.43,
+            "ty": 778.55,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Kansai International Airport /",
+              "关西国际机场"
+            ],
+            "query": "Kansai International Airport 日本 · 关西",
+            "geo": {
+              "lat": 34.4347,
+              "lng": 135.2441
+            },
+            "days": [
+              1,
+              4
+            ]
+          },
+          {
+            "id": "kyoto",
+            "x": 978.61,
+            "y": 246.62,
+            "color": "#397dc1",
+            "tx": 946.61,
+            "ty": 214.62,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Kyoto Station /",
+              "京都站"
+            ],
+            "query": "Kyoto Station 日本 · 关西",
+            "geo": {
+              "lat": 34.9858,
+              "lng": 135.7588
+            },
+            "days": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": "kiyomizu",
+            "x": 1072.19,
+            "y": 213.85,
+            "color": "#397dc1",
+            "tx": 1150.19,
+            "ty": 151.85,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Kiyomizu-dera /",
+              "清水寺"
+            ],
+            "query": "Kiyomizu-dera 日本 · 关西",
+            "geo": {
+              "lat": 34.9949,
+              "lng": 135.785
+            },
+            "days": [
+              1
+            ]
+          },
+          {
+            "id": "fushimi",
+            "x": 1053.51,
+            "y": 310.16,
+            "color": "#e77e22",
+            "tx": 975.51,
+            "ty": 386.16,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Fushimi Inari Taisha /",
+              "伏见稻荷大社"
+            ],
+            "query": "Fushimi Inari Taisha 日本 · 关西",
+            "geo": {
+              "lat": 34.9671,
+              "lng": 135.7727
+            },
+            "days": [
+              2
+            ]
+          },
+          {
+            "id": "nara",
+            "x": 1093.57,
+            "y": 557.51,
+            "color": "#e77e22",
+            "tx": 1231.57,
+            "ty": 469.51,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Nara Park /",
+              "奈良公园"
+            ],
+            "query": "Nara Park 日本 · 关西",
+            "geo": {
+              "lat": 34.6851,
+              "lng": 135.843
+            },
+            "days": [
+              2
+            ]
+          },
+          {
+            "id": "osaka",
+            "x": 831.02,
+            "y": 572.86,
+            "color": "#618344",
+            "tx": 969.02,
+            "ty": 674.86,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Dotonbori /",
+              "道顿堀"
+            ],
+            "query": "Dotonbori 日本 · 关西",
+            "geo": {
+              "lat": 34.6687,
+              "lng": 135.5013
+            },
+            "days": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "usj",
+            "x": 731.56,
+            "y": 578.65,
+            "color": "#618344",
+            "tx": 699.56,
+            "ty": 546.65,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Universal Studios Japan /",
+              "日本环球影城"
+            ],
+            "query": "Universal Studios Japan 日本 · 关西",
+            "geo": {
+              "lat": 34.6654,
+              "lng": 135.4323
+            },
+            "days": [
+              3
+            ]
+          }
+        ],
+        "overviewPlaceIds": [
+          "kix",
+          "kyoto",
+          "kiyomizu",
+          "fushimi",
+          "nara",
+          "osaka",
+          "usj"
+        ],
+        "dailyLayouts": {
+          "1": {
+            "places": [
+              "kix",
+              "kyoto",
+              "kiyomizu"
+            ],
+            "labels": {
+              "kix": {
+                "x": 628.43,
+                "y": 778.55,
+                "anchor": "start"
+              },
+              "kyoto": {
+                "x": 946.61,
+                "y": 214.62,
+                "anchor": "end"
+              },
+              "kiyomizu": {
+                "x": 1150.19,
+                "y": 151.85,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 787.52,
+                "y": 528.59
+              },
+              {
+                "items": [],
+                "x": 1025.4,
+                "y": 230.24
+              }
+            ]
+          },
+          "2": {
+            "places": [
+              "fushimi",
+              "nara",
+              "kyoto"
+            ],
+            "labels": {
+              "fushimi": {
+                "x": 975.51,
+                "y": 386.16,
+                "anchor": "end"
+              },
+              "nara": {
+                "x": 1231.57,
+                "y": 469.51,
+                "anchor": "start"
+              },
+              "kyoto": {
+                "x": 946.61,
+                "y": 214.62,
+                "anchor": "end"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 1073.54,
+                "y": 433.84
+              },
+              {
+                "items": [],
+                "x": 1036.09,
+                "y": 402.06
+              }
+            ]
+          },
+          "3": {
+            "places": [
+              "kyoto",
+              "usj",
+              "osaka"
+            ],
+            "labels": {
+              "kyoto": {
+                "x": 946.61,
+                "y": 214.62,
+                "anchor": "end"
+              },
+              "usj": {
+                "x": 699.56,
+                "y": 546.65,
+                "anchor": "end"
+              },
+              "osaka": {
+                "x": 969.02,
+                "y": 674.86,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 855.09,
+                "y": 412.63
+              },
+              {
+                "items": [],
+                "x": 781.29,
+                "y": 575.75
+              }
+            ]
+          },
+          "4": {
+            "places": [
+              "osaka",
+              "kix"
+            ],
+            "labels": {
+              "osaka": {
+                "x": 969.02,
+                "y": 674.86,
+                "anchor": "start"
+              },
+              "kix": {
+                "x": 628.43,
+                "y": 778.55,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 713.72,
+                "y": 691.7
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

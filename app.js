@@ -954,7 +954,7 @@ function preloadDefaultRouteMap() {
   state.routeMapPreload = image;
 }
 
-/* 行程数据来源：浏览器中导入的行程（trip-loader.js 写入）优先，否则读取仓库中的 trip-data.json */
+/* 行程数据来源：浏览器中导入的行程（trip-loader.js）> 仓库 trip-data.json > 仓库为空白模板时的示例行程 */
 async function loadTripData() {
   const local = window.TripLoader?.readLocalTrip?.();
   if (local) {
@@ -963,8 +963,21 @@ async function loadTripData() {
   }
   const response = await fetch("trip-data.json", { cache: "no-store" });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const repository = await response.json();
+  /* 仓库里还是空白模板时，显示示例行程，让打开就能看到全部功能 */
+  if (repository?.trip?.status === "uninitialized") {
+    try {
+      const demo = await fetch("demo-trip-data.json", { cache: "no-store" });
+      if (demo.ok) {
+        window.TRIP_DATA_SOURCE = "demo";
+        return demo.json();
+      }
+    } catch (error) {
+      console.warn("Demo trip could not be loaded", error);
+    }
+  }
   window.TRIP_DATA_SOURCE = "repository";
-  return response.json();
+  return repository;
 }
 
 async function init() {

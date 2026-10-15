@@ -46,24 +46,38 @@
     </section>
 
     <section class="section trip-loader" id="trip-loader" aria-labelledby="trip-loader-title" hidden>
-      <div class="trip-loader__card" id="trip-loader-empty" hidden>
-        <p class="section-kicker">START HERE</p>
-        <h2 id="trip-loader-title">导入一趟行程</h2>
-        <ol class="trip-loader__steps">
-          <li>在 <a id="trip-loader-ledger-link" href="https://sqsqsqlll.github.io/travelexpensesssss/" target="_blank" rel="noopener">旅游AA账本</a> 里整理预算、地点和日期；</li>
-          <li>打开「⚙ 管理」，在对应行程上点「🗺 行程页」，下载 <code>trip-data.json</code>；</li>
-          <li>回到这里点下面的按钮选择这个文件。</li>
-        </ol>
-        <div class="trip-loader__actions">
-          <label class="trip-loader__button">📥 选择 trip-data.json<input type="file" id="trip-loader-file" accept=".json,application/json" hidden></label>
+      <div class="trip-loader__card">
+        <div class="trip-loader__head">
+          <span class="trip-loader__badge" id="trip-loader-badge">示例行程</span>
+          <h2 id="trip-loader-title">行程数据</h2>
         </div>
-        <p class="trip-loader__note">导入的行程只保存在当前浏览器。想让所有人打开网址都看到，把这个文件替换仓库根目录的 <code>trip-data.json</code> 即可。</p>
+        <p class="trip-loader__status" id="trip-loader-status"></p>
+        <div class="trip-loader__actions">
+          <label class="trip-loader__button">📥 导入行程<input type="file" id="trip-loader-file" accept=".json,application/json" hidden></label>
+          <button type="button" class="trip-loader__button trip-loader__button--ghost" id="trip-loader-export">📤 导出当前行程</button>
+          <button type="button" class="trip-loader__button trip-loader__button--ghost" id="trip-loader-clear" hidden>↺ 清除导入</button>
+        </div>
         <p class="trip-loader__error" id="trip-loader-error" role="alert" hidden></p>
-      </div>
-      <div class="trip-loader__bar" id="trip-loader-bar" hidden>
-        <span>📍 正在显示本机导入的行程</span>
-        <label class="trip-loader__link">更换<input type="file" id="trip-loader-file-replace" accept=".json,application/json" hidden></label>
-        <button type="button" class="trip-loader__link" id="trip-loader-clear">清除，恢复默认</button>
+        <details class="trip-loader__help">
+          <summary>怎么导入 / 导出？</summary>
+          <div class="trip-loader__help-body">
+            <h3>📥 导入：把自己的行程放进来</h3>
+            <ol>
+              <li>打开 <a href="https://sqsqsqlll.github.io/travelexpensesssss/" target="_blank" rel="noopener">旅游AA账本</a>，在「预算」「地点」里记下这趟旅行的日期、车票、门票、住宿和想去的地方；</li>
+              <li>点页面上方行程条里的「⚙ 管理」，在对应行程上点「🗺 行程页」，下载 <code>trip-data.json</code>；</li>
+              <li>回到这里点「📥 导入行程」，选择这个文件，页面会立刻换成你的行程。</li>
+            </ol>
+            <p class="trip-loader__tip">导入的行程只保存在<b>当前这台设备的这个浏览器</b>里；换手机、换浏览器或清除网站数据后需要重新导入。点「↺ 清除导入」可回到默认内容。</p>
+            <h3>📤 导出：备份、分享或发布</h3>
+            <ol>
+              <li>点「📤 导出当前行程」，下载正在显示的行程 <code>trip-data.json</code>（导入的、示例的都可以导出）；</li>
+              <li><b>发给同行的人</b>：对方打开本网站，用「📥 导入行程」选择这个文件即可看到同样的行程；</li>
+              <li><b>让所有人打开网址就能看到</b>：用它替换 GitHub 仓库 <code>Do-Travel-Plan-Page</code> 根目录的 <code>trip-data.json</code>（或发给 Claude 代为替换）；</li>
+              <li><b>导回账本</b>：在旅游AA账本「⚙ 管理 → 📥 从行程页导入」选择这个文件，航班、住宿、门票、费用会变成预算项，景点和餐厅进入地点库。</li>
+            </ol>
+            <p class="trip-loader__tip">待办勾选、门票「已购票」状态和本页记账也都只存在当前浏览器，不会随文件导出。行程文件里如有订单号、地址等信息，公开发布前请先确认。</p>
+          </div>
+        </details>
       </div>
     </section>
 

@@ -448,19 +448,25 @@ button:focus-visible,a:focus-visible {outline:2px solid var(--lake);outline-offs
   #map-dialog-content .daily-fullscreen {width:100%;min-width:0;}
 }
 
-/* ---------- 行程导入（trip-loader.js） ---------- */
+/* ---------- 行程数据：导入 / 导出（trip-loader.js） ---------- */
 .trip-loader [hidden] { display: none !important; }
 .trip-loader { padding-top: 0; }
-.trip-loader__card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 22px 20px; box-shadow: var(--shadow); }
-.trip-loader__card h2 { margin: 4px 0 12px; font-size: 24px; letter-spacing: -0.02em; }
-.trip-loader__steps { margin: 0 0 18px; padding-left: 20px; color: var(--muted); line-height: 1.8; font-size: 15px; }
-.trip-loader__steps a { color: var(--lake); font-weight: 650; }
-.trip-loader__steps code, .trip-loader__note code { background: var(--lake-soft); color: var(--ink); padding: 1px 6px; border-radius: 6px; font-size: 13px; }
-.trip-loader__actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.trip-loader__button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 700; cursor: pointer; }
-.trip-loader__button:focus-within { outline: 3px solid var(--lake-soft); outline-offset: 2px; }
-.trip-loader__note { margin: 14px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
-.trip-loader__error { margin: 12px 0 0; color: var(--warning); font-size: 14px; font-weight: 650; }
-.trip-loader__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 10px 14px; border-radius: var(--radius-md); background: var(--lake-soft); color: var(--ink); font-size: 14px; }
-.trip-loader__bar span { margin-right: auto; font-weight: 650; }
-.trip-loader__link { border: 0; background: none; padding: 0; color: var(--lake); font: inherit; font-weight: 700; cursor: pointer; text-decoration: underline; }
+.trip-loader__card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 18px 18px 14px; box-shadow: var(--shadow); }
+.trip-loader__head { display: flex; align-items: center; gap: 10px; }
+.trip-loader__head h2 { margin: 0; font-size: 20px; letter-spacing: -0.02em; }
+.trip-loader__badge { flex: none; font-size: 12px; font-weight: 750; padding: 3px 10px; border-radius: 999px; background: var(--lake-soft); color: var(--lake); }
+.trip-loader__badge.is-demo { background: #f6e7dc; color: var(--terracotta); }
+.trip-loader__badge.is-repo { background: #e3ece4; color: var(--forest); }
+.trip-loader__status { margin: 8px 0 14px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.trip-loader__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.trip-loader__button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--ink); background: var(--ink); color: #fff; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.trip-loader__button--ghost { background: var(--surface); color: var(--ink); border-color: var(--line); }
+.trip-loader__button:focus-within, .trip-loader__button:focus-visible { outline: 3px solid var(--lake-soft); outline-offset: 2px; }
+.trip-loader__error { margin: 10px 0 0; color: var(--warning); font-size: 14px; font-weight: 650; }
+.trip-loader__help { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 10px; }
+.trip-loader__help summary { cursor: pointer; font-weight: 700; color: var(--lake); font-size: 14px; list-style-position: inside; }
+.trip-loader__help-body h3 { margin: 14px 0 6px; font-size: 15px; }
+.trip-loader__help-body ol { margin: 0; padding-left: 20px; color: var(--ink); line-height: 1.75; font-size: 14px; }
+.trip-loader__help-body a { color: var(--lake); font-weight: 650; }
+.trip-loader__help code { background: var(--lake-soft); padding: 1px 6px; border-radius: 6px; font-size: 12.5px; }
+.trip-loader__tip { margin: 8px 0 0; padding: 8px 10px; border-radius: 10px; background: var(--paper); color: var(--muted); font-size: 13px; line-height: 1.6; }
