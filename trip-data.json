@@ -4,10 +4,10 @@
   "config": {
     "schemaVersion": "1.0.0",
     "modules": {
-      "flights": false,
-      "overview": false,
-      "itinerary": false,
-      "todo": false,
+      "flights": true,
+      "overview": true,
+      "itinerary": true,
+      "todo": true,
       "driving": false,
       "ledger": false
     },
@@ -17,47 +17,1067 @@
     }
   },
   "metadata": {
-    "tripId": "unconfigured",
-    "title": "旅行计划",
+    "tripId": "japan-kansai-kumano-2026",
+    "title": "日本关西 · 熊野古道 18 日",
     "language": "zh-CN",
-    "assets": {}
+    "timeZone": "Asia/Tokyo",
+    "assets": {
+      "routeMaps": [
+        "assets/maps/templates/template-09-radial-watershed.webp"
+      ]
+    }
   },
   "trip": {
-    "status": "uninitialized",
-    "startDate": null,
-    "endDate": null,
-    "dayCount": 0,
-    "nightCountAway": 0,
-    "countries": [],
-    "primaryDestinationCountries": [],
-    "citiesAndAreas": [],
-    "routeSummary": "",
-    "groupSize": null
+    "status": "planned",
+    "startDate": "2026-11-30",
+    "endDate": "2026-12-17",
+    "dayCount": 18,
+    "nightCountAway": 17,
+    "countries": [
+      {
+        "code": "JP",
+        "name": "Japan",
+        "nameZh": "日本",
+        "nameEn": "Japan"
+      }
+    ],
+    "primaryDestinationCountries": [
+      "JP"
+    ],
+    "citiesAndAreas": [
+      "东京",
+      "德岛",
+      "鸣门",
+      "淡路岛",
+      "神户",
+      "姬路",
+      "奈良",
+      "京都",
+      "和歌山",
+      "熊野",
+      "那智胜浦",
+      "大阪"
+    ],
+    "routeSummary": "东京 → 德岛 → 神户 → 奈良 → 京都 → 和歌山 → 熊野古道 → 大阪 → 东京",
+    "groupSize": null,
+    "heroTitle": "关西 · 熊野古道 18 日",
+    "heroEyebrow": "TOKUSHIMA · KOBE · NARA · KYOTO · KUMANO · OSAKA"
   },
-  "flightJourneys": [],
-  "flights": [],
-  "accommodations": [],
+  "flightJourneys": [
+    {
+      "id": "j1",
+      "title": "广州 → 东京",
+      "placeholder": true,
+      "status": "pending",
+      "missingFields": [
+        "carrierId",
+        "flightNumber",
+        "departureTime",
+        "arrivalTime",
+        "arrivalPlace"
+      ]
+    },
+    {
+      "id": "j2",
+      "title": "东京 → 德岛",
+      "placeholder": true,
+      "status": "pending",
+      "missingFields": [
+        "carrierId",
+        "flightNumber",
+        "departureTime",
+        "arrivalTime",
+        "departurePlace"
+      ]
+    },
+    {
+      "id": "j3",
+      "title": "大阪 → 东京",
+      "placeholder": true,
+      "status": "pending",
+      "missingFields": [
+        "carrierId",
+        "flightNumber",
+        "departureTime",
+        "arrivalTime",
+        "departurePlace",
+        "arrivalPlace"
+      ]
+    },
+    {
+      "id": "j4",
+      "title": "羽田 → 广州"
+    }
+  ],
+  "flights": [
+    {
+      "id": "nh923",
+      "journeyId": "j4",
+      "sequence": 1,
+      "flightNumber": "NH923",
+      "airline": {
+        "nameZh": "全日空",
+        "name": "ANA"
+      },
+      "departure": {
+        "airportCode": "HND",
+        "city": "东京羽田",
+        "date": "2026-12-17",
+        "time": "09:20",
+        "utcOffset": "+09:00"
+      },
+      "arrival": {
+        "airportCode": "CAN",
+        "city": "广州白云",
+        "date": "2026-12-17",
+        "time": "13:50",
+        "utcOffset": "+08:00"
+      }
+    }
+  ],
+  "accommodations": [
+    {
+      "name": "东京（机场附近）",
+      "checkIn": "2026-11-30",
+      "nights": 1
+    },
+    {
+      "name": "德岛",
+      "checkIn": "2026-12-01",
+      "nights": 1
+    },
+    {
+      "name": "神户",
+      "checkIn": "2026-12-02",
+      "nights": 2
+    },
+    {
+      "name": "奈良",
+      "checkIn": "2026-12-04",
+      "nights": 2
+    },
+    {
+      "name": "京都",
+      "checkIn": "2026-12-06",
+      "nights": 5
+    },
+    {
+      "name": "和歌山",
+      "checkIn": "2026-12-11",
+      "nights": 1
+    },
+    {
+      "name": "川汤绿屋山水馆",
+      "checkIn": "2026-12-12",
+      "nights": 1
+    },
+    {
+      "name": "龟之井酒店",
+      "checkIn": "2026-12-13",
+      "nights": 1
+    },
+    {
+      "name": "大阪",
+      "checkIn": "2026-12-14",
+      "nights": 2
+    },
+    {
+      "name": "东京",
+      "checkIn": "2026-12-16",
+      "nights": 1
+    }
+  ],
   "groundTransport": {
     "rentalCar": null,
     "rentalChecklist": [],
-    "drivingNotes": [],
+    "drivingNotes": [
+      "D3 德岛 → 鸣门 → 淡路岛 → 神户 自驾（租车信息待补充）"
+    ],
     "drivingReferenceLinks": [],
     "plannedRoadLegs": [],
     "publicTransitAndRail": []
   },
-  "days": [],
-  "places": [],
+  "days": [
+    {
+      "id": "day-1",
+      "day": 1,
+      "date": "2026-11-30",
+      "title": "广州 → 东京",
+      "locations": [
+        "广州",
+        "东京"
+      ],
+      "schedule": [
+        {
+          "id": "d1-1",
+          "time": "",
+          "type": "flight",
+          "text": "✈️ 广州飞东京（航班待补充）"
+        },
+        {
+          "id": "d1-2",
+          "time": "",
+          "type": "check-in",
+          "text": "🏨 入住东京机场附近酒店"
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "航班号、起降时间与机场待补充",
+        "当晚住宿：东京（机场附近）"
+      ]
+    },
+    {
+      "id": "day-2",
+      "day": 2,
+      "date": "2026-12-01",
+      "title": "东京 → 德岛 · 鸣门",
+      "locations": [
+        "东京",
+        "德岛",
+        "鸣门"
+      ],
+      "schedule": [
+        {
+          "id": "d2-1",
+          "time": "",
+          "type": "flight",
+          "text": "✈️ 东京飞德岛（航班待补充）"
+        },
+        {
+          "id": "d2-2",
+          "time": "",
+          "type": "attraction",
+          "text": "🌀 游览德岛 / 鸣门",
+          "placeIds": [
+            "naruto"
+          ]
+        },
+        {
+          "id": "d2-3",
+          "time": "",
+          "type": "check-in",
+          "text": "🏨 入住德岛",
+          "placeIds": [
+            "tokushima"
+          ]
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "航班待补充",
+        "当晚住宿：德岛"
+      ]
+    },
+    {
+      "id": "day-3",
+      "day": 3,
+      "date": "2026-12-02",
+      "title": "德岛 → 鸣门 → 淡路岛 → 神户（自驾）",
+      "locations": [
+        "德岛",
+        "鸣门",
+        "淡路岛",
+        "神户"
+      ],
+      "schedule": [
+        {
+          "id": "d3-1",
+          "time": "",
+          "type": "drive",
+          "text": "🚗 德岛取车出发",
+          "placeIds": [
+            "tokushima"
+          ]
+        },
+        {
+          "id": "d3-2",
+          "time": "",
+          "type": "attraction",
+          "text": "🌀 鸣门漩涡 · 大鸣门桥",
+          "placeIds": [
+            "naruto"
+          ]
+        },
+        {
+          "id": "d3-3",
+          "time": "",
+          "type": "drive",
+          "text": "🚗 跨海前往淡路岛",
+          "placeIds": [
+            "awaji"
+          ]
+        },
+        {
+          "id": "d3-4",
+          "time": "",
+          "type": "drive",
+          "text": "🚗 明石海峡大桥前往神户",
+          "placeIds": [
+            "kobe"
+          ]
+        },
+        {
+          "id": "d3-5",
+          "time": "",
+          "type": "check-in",
+          "text": "🏨 入住神户"
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "自驾：租车公司、取还车地点与时间待补充",
+        "当晚住宿：神户"
+      ]
+    },
+    {
+      "id": "day-4",
+      "day": 4,
+      "date": "2026-12-03",
+      "title": "神户 → 姬路城 → 神户",
+      "locations": [
+        "神户",
+        "姬路"
+      ],
+      "schedule": [
+        {
+          "id": "d4-1",
+          "time": "",
+          "type": "transfer",
+          "text": "🚄 神户前往姬路"
+        },
+        {
+          "id": "d4-2",
+          "time": "",
+          "type": "attraction",
+          "text": "🏯 姬路城",
+          "placeIds": [
+            "himeji"
+          ]
+        },
+        {
+          "id": "d4-3",
+          "time": "",
+          "type": "transfer",
+          "text": "🚄 返回神户",
+          "placeIds": [
+            "kobe"
+          ]
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：神户"
+      ]
+    },
+    {
+      "id": "day-5",
+      "day": 5,
+      "date": "2026-12-04",
+      "title": "神户 → 奈良（途中轻松游览）",
+      "locations": [
+        "神户",
+        "奈良"
+      ],
+      "schedule": [
+        {
+          "id": "d5-1",
+          "time": "",
+          "type": "transfer",
+          "text": "🚄 神户前往奈良，途中安排轻松游览"
+        },
+        {
+          "id": "d5-2",
+          "time": "",
+          "type": "check-in",
+          "text": "🏨 入住奈良",
+          "placeIds": [
+            "nara"
+          ]
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：奈良"
+      ]
+    },
+    {
+      "id": "day-6",
+      "day": 6,
+      "date": "2026-12-05",
+      "title": "奈良公园 · 东大寺 · 春日大社",
+      "locations": [
+        "奈良"
+      ],
+      "schedule": [
+        {
+          "id": "d6-1",
+          "time": "",
+          "type": "attraction",
+          "text": "🦌 奈良公园",
+          "placeIds": [
+            "nara"
+          ]
+        },
+        {
+          "id": "d6-2",
+          "time": "",
+          "type": "attraction",
+          "text": "🛕 东大寺",
+          "placeIds": [
+            "todaiji"
+          ]
+        },
+        {
+          "id": "d6-3",
+          "time": "",
+          "type": "attraction",
+          "text": "⛩ 春日大社",
+          "placeIds": [
+            "kasuga"
+          ]
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：奈良"
+      ]
+    },
+    {
+      "id": "day-7",
+      "day": 7,
+      "date": "2026-12-06",
+      "title": "奈良 → 京都",
+      "locations": [
+        "奈良",
+        "京都"
+      ],
+      "schedule": [
+        {
+          "id": "d7-1",
+          "time": "",
+          "type": "transfer",
+          "text": "🚄 奈良前往京都",
+          "placeIds": [
+            "kyoto"
+          ]
+        },
+        {
+          "id": "d7-2",
+          "time": "",
+          "type": "check-in",
+          "text": "🏨 入住京都，开始京都行程"
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：京都"
+      ]
+    },
+    {
+      "id": "day-8",
+      "day": 8,
+      "date": "2026-12-07",
+      "title": "京都东山 · 清水寺一带",
+      "locations": [
+        "京都"
+      ],
+      "schedule": [
+        {
+          "id": "d8-1",
+          "time": "",
+          "type": "attraction",
+          "text": "🏛 京都东山 · 清水寺一带",
+          "placeIds": [
+            "kiyomizu"
+          ]
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：京都"
+      ]
+    },
+    {
+      "id": "day-9",
+      "day": 9,
+      "date": "2026-12-08",
+      "title": "京都市区游览",
+      "locations": [
+        "京都"
+      ],
+      "schedule": [
+        {
+          "id": "d9-1",
+          "time": "",
+          "type": "attraction",
+          "text": "🍁 京都市区游览"
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：京都"
+      ]
+    },
+    {
+      "id": "day-10",
+      "day": 10,
+      "date": "2026-12-09",
+      "title": "京都市区游览",
+      "locations": [
+        "京都"
+      ],
+      "schedule": [
+        {
+          "id": "d10-1",
+          "time": "",
+          "type": "attraction",
+          "text": "🍁 京都市区游览"
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：京都"
+      ]
+    },
+    {
+      "id": "day-11",
+      "day": 11,
+      "date": "2026-12-10",
+      "title": "京都市区游览 · 预留休息",
+      "locations": [
+        "京都"
+      ],
+      "schedule": [
+        {
+          "id": "d11-1",
+          "time": "",
+          "type": "attraction",
+          "text": "🍁 京都市区游览"
+        },
+        {
+          "id": "d11-2",
+          "time": "",
+          "type": "rest",
+          "text": "☕ 预留休息时间"
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：京都"
+      ]
+    },
+    {
+      "id": "day-12",
+      "day": 12,
+      "date": "2026-12-11",
+      "title": "京都 → 和歌山 · 和歌山城 · 温泉",
+      "locations": [
+        "京都",
+        "和歌山"
+      ],
+      "schedule": [
+        {
+          "id": "d12-1",
+          "time": "",
+          "type": "transfer",
+          "text": "🚄 京都前往和歌山"
+        },
+        {
+          "id": "d12-2",
+          "time": "",
+          "type": "attraction",
+          "text": "🏯 和歌山城",
+          "placeIds": [
+            "wakayama"
+          ]
+        },
+        {
+          "id": "d12-3",
+          "time": "",
+          "type": "rest",
+          "text": "♨️ 温泉"
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：和歌山"
+      ]
+    },
+    {
+      "id": "day-13",
+      "day": 13,
+      "date": "2026-12-12",
+      "title": "和歌山 → 纪伊田边 → 川汤温泉",
+      "locations": [
+        "和歌山",
+        "田边",
+        "川汤温泉"
+      ],
+      "schedule": [
+        {
+          "id": "d13-1",
+          "time": "",
+          "type": "transfer",
+          "text": "🚄 和歌山前往纪伊田边",
+          "placeIds": [
+            "tanabe"
+          ]
+        },
+        {
+          "id": "d13-2",
+          "time": "",
+          "type": "note",
+          "text": "📒 领取熊野古道巡礼手帐"
+        },
+        {
+          "id": "d13-3",
+          "time": "",
+          "type": "transfer",
+          "text": "🚌 前往川汤温泉",
+          "placeIds": [
+            "kawayu"
+          ]
+        },
+        {
+          "id": "d13-4",
+          "time": "",
+          "type": "check-in",
+          "text": "🏨 入住 川汤绿屋山水馆"
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：川汤绿屋山水馆"
+      ]
+    },
+    {
+      "id": "day-14",
+      "day": 14,
+      "date": "2026-12-13",
+      "title": "发心门王子徒步 → 熊野本宫大社 → 熊野速玉大社 → 胜浦",
+      "locations": [
+        "熊野",
+        "新宫",
+        "胜浦"
+      ],
+      "schedule": [
+        {
+          "id": "d14-1",
+          "time": "",
+          "type": "hike",
+          "text": "🥾 发心门王子徒步（熊野古道）",
+          "placeIds": [
+            "hosshinmon"
+          ]
+        },
+        {
+          "id": "d14-2",
+          "time": "",
+          "type": "attraction",
+          "text": "⛩ 熊野本宫大社",
+          "placeIds": [
+            "hongu"
+          ]
+        },
+        {
+          "id": "d14-3",
+          "time": "",
+          "type": "attraction",
+          "text": "⛩ 熊野速玉大社",
+          "placeIds": [
+            "hayatama"
+          ]
+        },
+        {
+          "id": "d14-4",
+          "time": "",
+          "type": "check-in",
+          "text": "🏨 入住 龟之井酒店（胜浦）",
+          "placeIds": [
+            "katsuura"
+          ]
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：龟之井酒店"
+      ]
+    },
+    {
+      "id": "day-15",
+      "day": 15,
+      "date": "2026-12-14",
+      "title": "那智大社 · 青岸渡寺 · 那智瀑布 → 大阪",
+      "locations": [
+        "那智",
+        "大阪"
+      ],
+      "schedule": [
+        {
+          "id": "d15-1",
+          "time": "",
+          "type": "attraction",
+          "text": "⛩ 熊野那智大社 · 青岸渡寺 · 三重塔 · 那智瀑布",
+          "placeIds": [
+            "nachi"
+          ]
+        },
+        {
+          "id": "d15-2",
+          "time": "",
+          "type": "transfer",
+          "text": "🚄 前往大阪",
+          "placeIds": [
+            "osaka"
+          ]
+        },
+        {
+          "id": "d15-3",
+          "time": "",
+          "type": "check-in",
+          "text": "🏨 入住大阪"
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：大阪"
+      ]
+    },
+    {
+      "id": "day-16",
+      "day": 16,
+      "date": "2026-12-15",
+      "title": "大阪市区 · 购物或休息",
+      "locations": [
+        "大阪"
+      ],
+      "schedule": [
+        {
+          "id": "d16-1",
+          "time": "",
+          "type": "attraction",
+          "text": "🛍 大阪市区、购物或休息",
+          "placeIds": [
+            "osaka"
+          ]
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚住宿：大阪"
+      ]
+    },
+    {
+      "id": "day-17",
+      "day": 17,
+      "date": "2026-12-16",
+      "title": "大阪 → 东京",
+      "locations": [
+        "大阪",
+        "东京"
+      ],
+      "schedule": [
+        {
+          "id": "d17-1",
+          "time": "",
+          "type": "flight",
+          "text": "✈️ 大阪飞东京（航班待补充）"
+        },
+        {
+          "id": "d17-2",
+          "time": "",
+          "type": "check-in",
+          "text": "🏨 入住东京"
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "航班待补充",
+        "当晚住宿：东京"
+      ]
+    },
+    {
+      "id": "day-18",
+      "day": 18,
+      "date": "2026-12-17",
+      "title": "羽田 → 广州 · 返程",
+      "locations": [
+        "东京",
+        "广州"
+      ],
+      "schedule": [
+        {
+          "id": "d18-1",
+          "time": "09:20",
+          "type": "flight",
+          "text": "✈️ ANA NH923 羽田 09:20 → 广州 13:50"
+        }
+      ],
+      "costReferences": [],
+      "notes": [
+        "当晚无住宿（返程）"
+      ]
+    }
+  ],
+  "places": [
+    {
+      "id": "tokushima",
+      "name": "Tokushima Station",
+      "nameZh": "德岛站",
+      "category": "city",
+      "cityOrArea": "德岛",
+      "navigation": {
+        "query": "Tokushima Station, Japan"
+      }
+    },
+    {
+      "id": "naruto",
+      "name": "Naruto Whirlpools Onaruto Bridge",
+      "nameZh": "鸣门漩涡 · 大鸣门桥",
+      "category": "attraction",
+      "cityOrArea": "鸣门",
+      "navigation": {
+        "query": "Naruto Whirlpools Onaruto Bridge, Japan"
+      }
+    },
+    {
+      "id": "awaji",
+      "name": "Awaji Island",
+      "nameZh": "淡路岛",
+      "category": "area",
+      "cityOrArea": "淡路岛",
+      "navigation": {
+        "query": "Awaji Island, Japan"
+      }
+    },
+    {
+      "id": "kobe",
+      "name": "Sannomiya Kobe",
+      "nameZh": "神户 三宫",
+      "category": "city",
+      "cityOrArea": "神户",
+      "navigation": {
+        "query": "Sannomiya Kobe, Japan"
+      }
+    },
+    {
+      "id": "himeji",
+      "name": "Himeji Castle",
+      "nameZh": "姬路城",
+      "category": "attraction",
+      "cityOrArea": "姬路",
+      "navigation": {
+        "query": "Himeji Castle, Japan"
+      }
+    },
+    {
+      "id": "nara",
+      "name": "Nara Park",
+      "nameZh": "奈良公园",
+      "category": "attraction",
+      "cityOrArea": "奈良",
+      "navigation": {
+        "query": "Nara Park, Japan"
+      }
+    },
+    {
+      "id": "todaiji",
+      "name": "Todai-ji",
+      "nameZh": "东大寺",
+      "category": "attraction",
+      "cityOrArea": "奈良",
+      "navigation": {
+        "query": "Todai-ji, Japan"
+      }
+    },
+    {
+      "id": "kasuga",
+      "name": "Kasuga Taisha",
+      "nameZh": "春日大社",
+      "category": "attraction",
+      "cityOrArea": "奈良",
+      "navigation": {
+        "query": "Kasuga Taisha, Japan"
+      }
+    },
+    {
+      "id": "kyoto",
+      "name": "Kyoto Station",
+      "nameZh": "京都站",
+      "category": "city",
+      "cityOrArea": "京都",
+      "navigation": {
+        "query": "Kyoto Station, Japan"
+      }
+    },
+    {
+      "id": "kiyomizu",
+      "name": "Kiyomizu-dera",
+      "nameZh": "清水寺",
+      "category": "attraction",
+      "cityOrArea": "京都",
+      "navigation": {
+        "query": "Kiyomizu-dera, Japan"
+      }
+    },
+    {
+      "id": "wakayama",
+      "name": "Wakayama Castle",
+      "nameZh": "和歌山城",
+      "category": "attraction",
+      "cityOrArea": "和歌山",
+      "navigation": {
+        "query": "Wakayama Castle, Japan"
+      }
+    },
+    {
+      "id": "tanabe",
+      "name": "Kii-Tanabe Station",
+      "nameZh": "纪伊田边",
+      "category": "city",
+      "cityOrArea": "田边",
+      "navigation": {
+        "query": "Kii-Tanabe Station, Japan"
+      }
+    },
+    {
+      "id": "kawayu",
+      "name": "Kawayu Onsen",
+      "nameZh": "川汤温泉",
+      "category": "area",
+      "cityOrArea": "熊野",
+      "navigation": {
+        "query": "Kawayu Onsen, Japan"
+      }
+    },
+    {
+      "id": "hosshinmon",
+      "name": "Hosshinmon-oji",
+      "nameZh": "发心门王子",
+      "category": "attraction",
+      "cityOrArea": "熊野",
+      "navigation": {
+        "query": "Hosshinmon-oji, Japan"
+      }
+    },
+    {
+      "id": "hongu",
+      "name": "Kumano Hongu Taisha",
+      "nameZh": "熊野本宫大社",
+      "category": "attraction",
+      "cityOrArea": "熊野",
+      "navigation": {
+        "query": "Kumano Hongu Taisha, Japan"
+      }
+    },
+    {
+      "id": "hayatama",
+      "name": "Kumano Hayatama Taisha",
+      "nameZh": "熊野速玉大社",
+      "category": "attraction",
+      "cityOrArea": "新宫",
+      "navigation": {
+        "query": "Kumano Hayatama Taisha, Japan"
+      }
+    },
+    {
+      "id": "katsuura",
+      "name": "Kii-Katsuura",
+      "nameZh": "那智胜浦",
+      "category": "city",
+      "cityOrArea": "胜浦",
+      "navigation": {
+        "query": "Kii-Katsuura, Japan"
+      }
+    },
+    {
+      "id": "nachi",
+      "name": "Kumano Nachi Taisha",
+      "nameZh": "熊野那智大社 · 青岸渡寺 · 那智瀑布",
+      "category": "attraction",
+      "cityOrArea": "那智",
+      "navigation": {
+        "query": "Kumano Nachi Taisha, Japan"
+      }
+    },
+    {
+      "id": "osaka",
+      "name": "Namba Osaka",
+      "nameZh": "大阪 难波",
+      "category": "city",
+      "cityOrArea": "大阪",
+      "navigation": {
+        "query": "Namba Osaka, Japan"
+      }
+    }
+  ],
   "restaurants": [],
   "bookingsAndTickets": [],
   "ticketPlanning": {
     "statusStorage": "local",
     "statusStorageNote": "门票状态默认只保存在当前浏览器。",
-    "items": []
+    "items": [
+      {
+        "id": "t-himeji",
+        "day": 4,
+        "name": "姬路城",
+        "requirement": "needs-confirmation",
+        "guidance": [
+          "现场购票，旺季注意排队"
+        ],
+        "officialUrl": "https://www.himejicastle.jp/",
+        "scheduleItemIds": [
+          "d4-2"
+        ]
+      },
+      {
+        "id": "t-todaiji",
+        "day": 6,
+        "name": "东大寺大佛殿",
+        "requirement": "needs-confirmation",
+        "guidance": [
+          "现场购票"
+        ],
+        "scheduleItemIds": [
+          "d6-2"
+        ]
+      }
+    ]
   },
   "preTrip": {
-    "packingItems": [],
+    "packingItems": [
+      {
+        "id": "todo-f1",
+        "text": "确认 11/30 广州 → 东京 航班"
+      },
+      {
+        "id": "todo-f2",
+        "text": "确认 12/1 东京 → 德岛 航班"
+      },
+      {
+        "id": "todo-f3",
+        "text": "确认 12/16 大阪 → 东京 航班"
+      },
+      {
+        "id": "todo-car",
+        "text": "预订 12/2 德岛取车 / 神户还车 的租车"
+      },
+      {
+        "id": "todo-dl",
+        "text": "办理驾照日文译本（自驾用）"
+      },
+      {
+        "id": "todo-hotel",
+        "text": "确认 17 晚住宿全部预订"
+      },
+      {
+        "id": "todo-kumano",
+        "text": "熊野古道：纪伊田边领取巡礼手帐、准备徒步装备"
+      }
+    ],
     "preparationsExplicitlyMentioned": [],
-    "missingNote": ""
+    "missingNote": "三段航班与租车信息待补充"
   },
   "mapLinks": {
     "providedGoogleMapsLinks": [],
@@ -83,14 +1103,1264 @@
     },
     "navigationPlaces": []
   },
-  "issuesAndUncertainties": [],
+  "issuesAndUncertainties": [
+    {
+      "id": "i1",
+      "text": "广州→东京、东京→德岛、大阪→东京 三段航班信息待补充"
+    },
+    {
+      "id": "i2",
+      "text": "D3 自驾租车信息待补充"
+    }
+  ],
   "map": {
     "schemaVersion": "1.0-lite",
     "mapMode": "template-auto",
     "templateId": "auto",
+    "region": {
+      "id": "jp",
+      "label": "日本 · 关西与熊野",
+      "countryCode": "JP"
+    },
     "disclaimer": "本图仅表达地点的相对方位与路线顺序，不代表真实比例或精确地理边界。",
-    "places": [],
-    "routes": [],
+    "places": [
+      {
+        "id": "awaji",
+        "name": "Awaji Island",
+        "nameZh": "淡路岛",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.43,
+          "lng": 134.85
+        }
+      },
+      {
+        "id": "hayatama",
+        "name": "Kumano Hayatama Taisha",
+        "nameZh": "熊野速玉大社",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 33.7316,
+          "lng": 135.9849
+        }
+      },
+      {
+        "id": "himeji",
+        "name": "Himeji Castle",
+        "nameZh": "姬路城",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.8394,
+          "lng": 134.6939
+        }
+      },
+      {
+        "id": "hongu",
+        "name": "Kumano Hongu Taisha",
+        "nameZh": "熊野本宫大社",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 33.8403,
+          "lng": 135.7735
+        }
+      },
+      {
+        "id": "hosshinmon",
+        "name": "Hosshinmon-oji",
+        "nameZh": "发心门王子",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 33.859,
+          "lng": 135.731
+        }
+      },
+      {
+        "id": "kasuga",
+        "name": "Kasuga Taisha",
+        "nameZh": "春日大社",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.6813,
+          "lng": 135.8484
+        }
+      },
+      {
+        "id": "katsuura",
+        "name": "Kii-Katsuura",
+        "nameZh": "那智胜浦",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 33.6266,
+          "lng": 135.9406
+        }
+      },
+      {
+        "id": "kawayu",
+        "name": "Kawayu Onsen",
+        "nameZh": "川汤温泉",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 33.8113,
+          "lng": 135.7663
+        }
+      },
+      {
+        "id": "kobe",
+        "name": "Sannomiya Kobe",
+        "nameZh": "神户 三宫",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.695,
+          "lng": 135.195
+        }
+      },
+      {
+        "id": "kyoto",
+        "name": "Kyoto Station",
+        "nameZh": "京都站",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.9858,
+          "lng": 135.7588
+        }
+      },
+      {
+        "id": "nachi",
+        "name": "Kumano Nachi Taisha",
+        "nameZh": "熊野那智大社 · 青岸渡寺 · 那智瀑布",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 33.6688,
+          "lng": 135.89
+        }
+      },
+      {
+        "id": "nara",
+        "name": "Nara Park",
+        "nameZh": "奈良公园",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.6851,
+          "lng": 135.843
+        }
+      },
+      {
+        "id": "naruto",
+        "name": "Naruto Whirlpools Onaruto Bridge",
+        "nameZh": "鸣门漩涡 · 大鸣门桥",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.239,
+          "lng": 134.651
+        }
+      },
+      {
+        "id": "osaka",
+        "name": "Namba Osaka",
+        "nameZh": "大阪 难波",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.666,
+          "lng": 135.501
+        }
+      },
+      {
+        "id": "tanabe",
+        "name": "Kii-Tanabe Station",
+        "nameZh": "纪伊田边",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 33.7339,
+          "lng": 135.3773
+        }
+      },
+      {
+        "id": "todaiji",
+        "name": "Todai-ji",
+        "nameZh": "东大寺",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.689,
+          "lng": 135.8398
+        }
+      },
+      {
+        "id": "tokushima",
+        "name": "Tokushima Station",
+        "nameZh": "德岛站",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.0745,
+          "lng": 134.5513
+        }
+      },
+      {
+        "id": "wakayama",
+        "name": "Wakayama Castle",
+        "nameZh": "和歌山城",
+        "countryCode": "JP",
+        "geo": {
+          "lat": 34.2273,
+          "lng": 135.1712
+        }
+      }
+    ],
+    "routes": [
+      {
+        "day": 2,
+        "placeIds": [
+          "tokushima",
+          "naruto"
+        ]
+      },
+      {
+        "day": 3,
+        "placeIds": [
+          "tokushima",
+          "naruto",
+          "awaji",
+          "kobe"
+        ]
+      },
+      {
+        "day": 4,
+        "placeIds": [
+          "kobe",
+          "himeji",
+          "kobe"
+        ]
+      },
+      {
+        "day": 5,
+        "placeIds": [
+          "kobe",
+          "nara"
+        ]
+      },
+      {
+        "day": 6,
+        "placeIds": [
+          "nara",
+          "todaiji",
+          "kasuga"
+        ]
+      },
+      {
+        "day": 7,
+        "placeIds": [
+          "nara",
+          "kyoto"
+        ]
+      },
+      {
+        "day": 12,
+        "placeIds": [
+          "kyoto",
+          "wakayama"
+        ]
+      },
+      {
+        "day": 13,
+        "placeIds": [
+          "wakayama",
+          "tanabe",
+          "kawayu"
+        ]
+      },
+      {
+        "day": 14,
+        "placeIds": [
+          "kawayu",
+          "hosshinmon",
+          "hongu",
+          "hayatama",
+          "katsuura"
+        ]
+      },
+      {
+        "day": 15,
+        "placeIds": [
+          "katsuura",
+          "nachi",
+          "osaka"
+        ]
+      }
+    ],
     "dailyRoutes": []
+  },
+  "routeMap": {
+    "defaultRegionId": "jp",
+    "regions": [
+      {
+        "id": "jp",
+        "label": "日本 · 关西与熊野",
+        "countryCode": "JP",
+        "scope": "template-schematic",
+        "mapMode": "frozen-template",
+        "templateId": "radial-watershed",
+        "mapModeReason": "north-south-route",
+        "mapModeMetrics": {
+          "placeCount": 18,
+          "geoPlaceCount": 18,
+          "widthKm": 131.54,
+          "heightKm": 150.87,
+          "spanKm": 176.98,
+          "averageNearestKm": 17.59,
+          "components": 1,
+          "largestLegKm": 116.52,
+          "jumpRatio": 4.16
+        },
+        "days": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          12,
+          13,
+          14,
+          15
+        ],
+        "canvas": {
+          "width": 1448,
+          "height": 1086
+        },
+        "projection": {
+          "type": "relative-schematic",
+          "bounds": null
+        },
+        "baseImage": "assets/maps/templates/template-09-radial-watershed.webp",
+        "title": "日本 · 关西与熊野 · 旅行路线",
+        "ariaLabel": "日本 · 关西与熊野模板化旅行路线示意图，共10天",
+        "disclaimer": "本图仅表达地点的相对方位与路线顺序，不代表真实比例或精确地理边界。",
+        "heading": {
+          "text": "日本 · 关西与熊野",
+          "x": 33,
+          "y": 105,
+          "size": 40
+        },
+        "legend": {
+          "x": 35,
+          "y": 168,
+          "gap": 43
+        },
+        "annotations": [],
+        "routes": [
+          {
+            "day": 2,
+            "color": "#e77e22",
+            "placeIds": [
+              "tokushima",
+              "naruto"
+            ],
+            "paths": [
+              "M446.79 641.34 C467.8 618.8 481.1 592.3 485.78 563.51"
+            ],
+            "overviewPaths": [
+              "M446.79 641.34 C467.8 618.8 481.1 592.3 485.78 563.51"
+            ]
+          },
+          {
+            "day": 3,
+            "color": "#618344",
+            "placeIds": [
+              "tokushima",
+              "naruto",
+              "awaji",
+              "kobe"
+            ],
+            "paths": [
+              "M446.79 641.34 C452.3 611.0 465.5 584.5 485.78 563.51 C519.1 542.2 544.1 513.5 559.08 479.15 C590.9 425.6 634.6 385.0 687.74 359.59"
+            ],
+            "overviewPaths": [
+              "M446.79 641.34 C452.3 611.0 465.5 584.5 485.78 563.51 C574.8 514.4 643.5 445.0 687.74 359.59"
+            ]
+          },
+          {
+            "day": 4,
+            "color": "#209aaa",
+            "placeIds": [
+              "kobe",
+              "himeji",
+              "kobe"
+            ],
+            "paths": [
+              "M687.74 359.59 C630.7 318.8 567.2 296.6 500.87 294.45 C570.9 297.9 634.5 320.1 687.74 359.59"
+            ],
+            "overviewPaths": []
+          },
+          {
+            "day": 5,
+            "color": "#8865a5",
+            "placeIds": [
+              "kobe",
+              "nara"
+            ],
+            "paths": [
+              "M687.74 359.59 C753.3 337.4 819.7 334.7 882.93 351.64"
+            ],
+            "overviewPaths": [
+              "M687.74 359.59 C753.3 337.4 819.7 334.7 882.93 351.64"
+            ]
+          },
+          {
+            "day": 6,
+            "color": "#df6185",
+            "placeIds": [
+              "nara",
+              "todaiji",
+              "kasuga"
+            ],
+            "paths": [
+              "M882.93 351.64 C912.2 351.5 939.1 343.5 962.05 327.99 C965.3 357.4 960.3 385.4 947.39 410.3"
+            ],
+            "overviewPaths": [
+              "M882.93 351.64 C899.0 378.0 920.9 398.0 947.39 410.3"
+            ]
+          },
+          {
+            "day": 7,
+            "color": "#397dc1",
+            "placeIds": [
+              "nara",
+              "kyoto"
+            ],
+            "paths": [
+              "M882.93 351.64 C875.7 308.2 880.8 266.3 897.99 228.4"
+            ],
+            "overviewPaths": [
+              "M882.93 351.64 C875.7 308.2 880.8 266.3 897.99 228.4"
+            ]
+          },
+          {
+            "day": 12,
+            "color": "#df6185",
+            "placeIds": [
+              "kyoto",
+              "wakayama"
+            ],
+            "paths": [
+              "M897.99 228.4 C798.2 328.6 723.7 444.9 678.86 570.6"
+            ],
+            "overviewPaths": [
+              "M897.99 228.4 C798.2 328.6 723.7 444.9 678.86 570.6"
+            ]
+          },
+          {
+            "day": 13,
+            "color": "#397dc1",
+            "placeIds": [
+              "wakayama",
+              "tanabe",
+              "kawayu"
+            ],
+            "paths": [
+              "M678.86 570.6 C727.3 638.6 753.4 714.3 755.72 793.19 C792.2 797.8 827.0 792.1 858.05 776.55"
+            ],
+            "overviewPaths": [
+              "M678.86 570.6 C760.4 622.7 821.3 692.7 858.05 776.55"
+            ]
+          },
+          {
+            "day": 14,
+            "color": "#e77e22",
+            "placeIds": [
+              "kawayu",
+              "hosshinmon",
+              "hongu",
+              "hayatama",
+              "katsuura"
+            ],
+            "paths": [
+              "M858.05 776.55 C868.1 749.0 870.0 720.8 863.41 693.81 C892.2 702.4 916.3 718.1 934.41 740.03 C953.8 763.4 977.9 779.6 1005.42 787.81 C1011.0 818.0 1007.9 847.2 996.44 873.89"
+            ],
+            "overviewPaths": [
+              "M858.05 776.55 C895.4 823.5 942.4 856.6 996.44 873.89"
+            ]
+          },
+          {
+            "day": 15,
+            "color": "#618344",
+            "placeIds": [
+              "katsuura",
+              "nachi",
+              "osaka"
+            ],
+            "paths": [
+              "M996.44 873.89 C968.8 864.4 945.9 848.1 929.17 826.12 C913.5 664.4 869.1 510.9 798.47 374.88"
+            ],
+            "overviewPaths": [
+              "M996.44 873.89 C901.2 715.3 833.9 545.6 798.47 374.88"
+            ]
+          }
+        ],
+        "places": [
+          {
+            "id": "awaji",
+            "x": 559.08,
+            "y": 479.15,
+            "color": "#618344",
+            "tx": 591.08,
+            "ty": 447.15,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Awaji Island /",
+              "淡路岛"
+            ],
+            "query": "Awaji Island 日本 · 关西与熊野",
+            "geo": {
+              "lat": 34.43,
+              "lng": 134.85
+            },
+            "days": [
+              3
+            ]
+          },
+          {
+            "id": "hayatama",
+            "x": 1005.42,
+            "y": 787.81,
+            "color": "#e77e22",
+            "tx": 1083.42,
+            "ty": 725.81,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Kumano Hayatama Taisha /",
+              "熊野速玉大社"
+            ],
+            "query": "Kumano Hayatama Taisha 日本 · 关西与熊野",
+            "geo": {
+              "lat": 33.7316,
+              "lng": 135.9849
+            },
+            "days": [
+              14
+            ]
+          },
+          {
+            "id": "himeji",
+            "x": 500.87,
+            "y": 294.45,
+            "color": "#209aaa",
+            "tx": 578.87,
+            "ty": 232.45,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Himeji Castle /",
+              "姬路城"
+            ],
+            "query": "Himeji Castle 日本 · 关西与熊野",
+            "geo": {
+              "lat": 34.8394,
+              "lng": 134.6939
+            },
+            "days": [
+              4
+            ]
+          },
+          {
+            "id": "hongu",
+            "x": 934.41,
+            "y": 740.03,
+            "color": "#e77e22",
+            "tx": 1072.41,
+            "ty": 652.03,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Kumano Hongu Taisha /",
+              "熊野本宫大社"
+            ],
+            "query": "Kumano Hongu Taisha 日本 · 关西与熊野",
+            "geo": {
+              "lat": 33.8403,
+              "lng": 135.7735
+            },
+            "days": [
+              14
+            ]
+          },
+          {
+            "id": "hosshinmon",
+            "x": 863.41,
+            "y": 693.81,
+            "color": "#e77e22",
+            "tx": 725.41,
+            "ty": 795.81,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Hosshinmon-oji /",
+              "发心门王子"
+            ],
+            "query": "Hosshinmon-oji 日本 · 关西与熊野",
+            "geo": {
+              "lat": 33.859,
+              "lng": 135.731
+            },
+            "days": [
+              14
+            ]
+          },
+          {
+            "id": "kasuga",
+            "x": 947.39,
+            "y": 410.3,
+            "color": "#df6185",
+            "tx": 1085.39,
+            "ty": 512.3,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Kasuga Taisha /",
+              "春日大社"
+            ],
+            "query": "Kasuga Taisha 日本 · 关西与熊野",
+            "geo": {
+              "lat": 34.6813,
+              "lng": 135.8484
+            },
+            "days": [
+              6
+            ]
+          },
+          {
+            "id": "katsuura",
+            "x": 996.44,
+            "y": 873.89,
+            "color": "#e77e22",
+            "tx": 1028.44,
+            "ty": 841.89,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Kii-Katsuura /",
+              "那智胜浦"
+            ],
+            "query": "Kii-Katsuura 日本 · 关西与熊野",
+            "geo": {
+              "lat": 33.6266,
+              "lng": 135.9406
+            },
+            "days": [
+              14,
+              15
+            ]
+          },
+          {
+            "id": "kawayu",
+            "x": 858.05,
+            "y": 776.55,
+            "color": "#397dc1",
+            "tx": 780.05,
+            "ty": 714.55,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Kawayu Onsen /",
+              "川汤温泉"
+            ],
+            "query": "Kawayu Onsen 日本 · 关西与熊野",
+            "geo": {
+              "lat": 33.8113,
+              "lng": 135.7663
+            },
+            "days": [
+              13,
+              14
+            ]
+          },
+          {
+            "id": "kobe",
+            "x": 687.74,
+            "y": 359.59,
+            "color": "#618344",
+            "tx": 825.74,
+            "ty": 271.59,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Sannomiya Kobe /",
+              "神户 三宫"
+            ],
+            "query": "Sannomiya Kobe 日本 · 关西与熊野",
+            "geo": {
+              "lat": 34.695,
+              "lng": 135.195
+            },
+            "days": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "kyoto",
+            "x": 897.99,
+            "y": 228.4,
+            "color": "#397dc1",
+            "tx": 819.99,
+            "ty": 166.4,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Kyoto Station /",
+              "京都站"
+            ],
+            "query": "Kyoto Station 日本 · 关西与熊野",
+            "geo": {
+              "lat": 34.9858,
+              "lng": 135.7588
+            },
+            "days": [
+              7,
+              12
+            ]
+          },
+          {
+            "id": "nachi",
+            "x": 929.17,
+            "y": 826.12,
+            "color": "#618344",
+            "tx": 1067.17,
+            "ty": 928.12,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Kumano Nachi Taisha /",
+              "熊野那智大社 · 青岸渡寺 · 那智瀑布"
+            ],
+            "query": "Kumano Nachi Taisha 日本 · 关西与熊野",
+            "geo": {
+              "lat": 33.6688,
+              "lng": 135.89
+            },
+            "days": [
+              15
+            ]
+          },
+          {
+            "id": "nara",
+            "x": 882.93,
+            "y": 351.64,
+            "color": "#8865a5",
+            "tx": 1020.93,
+            "ty": 453.64,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Nara Park /",
+              "奈良公园"
+            ],
+            "query": "Nara Park 日本 · 关西与熊野",
+            "geo": {
+              "lat": 34.6851,
+              "lng": 135.843
+            },
+            "days": [
+              5,
+              6,
+              7
+            ]
+          },
+          {
+            "id": "naruto",
+            "x": 485.78,
+            "y": 563.51,
+            "color": "#e77e22",
+            "tx": 453.78,
+            "ty": 531.51,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Naruto Whirlpools Onaruto Bridge /",
+              "鸣门漩涡 · 大鸣门桥"
+            ],
+            "query": "Naruto Whirlpools Onaruto Bridge 日本 · 关西与熊野",
+            "geo": {
+              "lat": 34.239,
+              "lng": 134.651
+            },
+            "days": [
+              2,
+              3
+            ]
+          },
+          {
+            "id": "osaka",
+            "x": 798.47,
+            "y": 374.88,
+            "color": "#618344",
+            "tx": 766.47,
+            "ty": 342.88,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Namba Osaka /",
+              "大阪 难波"
+            ],
+            "query": "Namba Osaka 日本 · 关西与熊野",
+            "geo": {
+              "lat": 34.666,
+              "lng": 135.501
+            },
+            "days": [
+              15
+            ]
+          },
+          {
+            "id": "tanabe",
+            "x": 755.72,
+            "y": 793.19,
+            "color": "#397dc1",
+            "tx": 677.72,
+            "ty": 869.19,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Kii-Tanabe Station /",
+              "纪伊田边"
+            ],
+            "query": "Kii-Tanabe Station 日本 · 关西与熊野",
+            "geo": {
+              "lat": 33.7339,
+              "lng": 135.3773
+            },
+            "days": [
+              13
+            ]
+          },
+          {
+            "id": "todaiji",
+            "x": 962.05,
+            "y": 327.99,
+            "color": "#df6185",
+            "tx": 1100.05,
+            "ty": 239.99,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Todai-ji /",
+              "东大寺"
+            ],
+            "query": "Todai-ji 日本 · 关西与熊野",
+            "geo": {
+              "lat": 34.689,
+              "lng": 135.8398
+            },
+            "days": [
+              6
+            ]
+          },
+          {
+            "id": "tokushima",
+            "x": 446.79,
+            "y": 641.34,
+            "color": "#e77e22",
+            "tx": 308.79,
+            "ty": 743.34,
+            "size": 24,
+            "anchor": "end",
+            "lines": [
+              "Tokushima Station /",
+              "德岛站"
+            ],
+            "query": "Tokushima Station 日本 · 关西与熊野",
+            "geo": {
+              "lat": 34.0745,
+              "lng": 134.5513
+            },
+            "days": [
+              2,
+              3
+            ]
+          },
+          {
+            "id": "wakayama",
+            "x": 678.86,
+            "y": 570.6,
+            "color": "#df6185",
+            "tx": 710.86,
+            "ty": 538.6,
+            "size": 24,
+            "anchor": "start",
+            "lines": [
+              "Wakayama Castle /",
+              "和歌山城"
+            ],
+            "query": "Wakayama Castle 日本 · 关西与熊野",
+            "geo": {
+              "lat": 34.2273,
+              "lng": 135.1712
+            },
+            "days": [
+              12,
+              13
+            ]
+          }
+        ],
+        "overviewPlaceIds": [
+          "tokushima",
+          "naruto",
+          "kobe",
+          "nara",
+          "kasuga",
+          "kyoto",
+          "wakayama",
+          "kawayu",
+          "katsuura",
+          "osaka"
+        ],
+        "dailyLayouts": {
+          "2": {
+            "places": [
+              "tokushima",
+              "naruto"
+            ],
+            "labels": {
+              "tokushima": {
+                "x": 308.79,
+                "y": 743.34,
+                "anchor": "end"
+              },
+              "naruto": {
+                "x": 453.78,
+                "y": 531.51,
+                "anchor": "end"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 466.28,
+                "y": 602.42
+              }
+            ]
+          },
+          "3": {
+            "places": [
+              "tokushima",
+              "naruto",
+              "awaji",
+              "kobe"
+            ],
+            "labels": {
+              "tokushima": {
+                "x": 308.79,
+                "y": 743.34,
+                "anchor": "end"
+              },
+              "naruto": {
+                "x": 453.78,
+                "y": 531.51,
+                "anchor": "end"
+              },
+              "awaji": {
+                "x": 591.08,
+                "y": 447.15,
+                "anchor": "start"
+              },
+              "kobe": {
+                "x": 825.74,
+                "y": 271.59,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 466.28,
+                "y": 602.42
+              },
+              {
+                "items": [],
+                "x": 522.43,
+                "y": 521.33
+              },
+              {
+                "items": [],
+                "x": 623.41,
+                "y": 419.37
+              }
+            ]
+          },
+          "4": {
+            "places": [
+              "kobe",
+              "himeji"
+            ],
+            "labels": {
+              "kobe": {
+                "x": 825.74,
+                "y": 271.59,
+                "anchor": "start"
+              },
+              "himeji": {
+                "x": 578.87,
+                "y": 232.45,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 594.31,
+                "y": 327.02
+              },
+              {
+                "items": [],
+                "x": 594.31,
+                "y": 327.02
+              }
+            ]
+          },
+          "5": {
+            "places": [
+              "kobe",
+              "nara"
+            ],
+            "labels": {
+              "kobe": {
+                "x": 825.74,
+                "y": 271.59,
+                "anchor": "start"
+              },
+              "nara": {
+                "x": 1020.93,
+                "y": 453.64,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 785.34,
+                "y": 355.62
+              }
+            ]
+          },
+          "6": {
+            "places": [
+              "nara",
+              "todaiji",
+              "kasuga"
+            ],
+            "labels": {
+              "nara": {
+                "x": 1020.93,
+                "y": 453.64,
+                "anchor": "start"
+              },
+              "todaiji": {
+                "x": 1100.05,
+                "y": 239.99,
+                "anchor": "start"
+              },
+              "kasuga": {
+                "x": 1085.39,
+                "y": 512.3,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 922.49,
+                "y": 339.81
+              },
+              {
+                "items": [],
+                "x": 954.72,
+                "y": 369.14
+              }
+            ]
+          },
+          "7": {
+            "places": [
+              "nara",
+              "kyoto"
+            ],
+            "labels": {
+              "nara": {
+                "x": 1020.93,
+                "y": 453.64,
+                "anchor": "start"
+              },
+              "kyoto": {
+                "x": 819.99,
+                "y": 166.4,
+                "anchor": "end"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 890.46,
+                "y": 290.02
+              }
+            ]
+          },
+          "12": {
+            "places": [
+              "kyoto",
+              "wakayama"
+            ],
+            "labels": {
+              "kyoto": {
+                "x": 819.99,
+                "y": 166.4,
+                "anchor": "end"
+              },
+              "wakayama": {
+                "x": 710.86,
+                "y": 538.6,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 788.42,
+                "y": 399.5
+              }
+            ]
+          },
+          "13": {
+            "places": [
+              "wakayama",
+              "tanabe",
+              "kawayu"
+            ],
+            "labels": {
+              "wakayama": {
+                "x": 710.86,
+                "y": 538.6,
+                "anchor": "start"
+              },
+              "tanabe": {
+                "x": 677.72,
+                "y": 869.19,
+                "anchor": "end"
+              },
+              "kawayu": {
+                "x": 780.05,
+                "y": 714.55,
+                "anchor": "end"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 717.29,
+                "y": 681.89
+              },
+              {
+                "items": [],
+                "x": 806.88,
+                "y": 784.87
+              }
+            ]
+          },
+          "14": {
+            "places": [
+              "kawayu",
+              "hosshinmon",
+              "hongu",
+              "hayatama",
+              "katsuura"
+            ],
+            "labels": {
+              "kawayu": {
+                "x": 780.05,
+                "y": 714.55,
+                "anchor": "end"
+              },
+              "hosshinmon": {
+                "x": 725.41,
+                "y": 795.81,
+                "anchor": "end"
+              },
+              "hongu": {
+                "x": 1072.41,
+                "y": 652.03,
+                "anchor": "start"
+              },
+              "hayatama": {
+                "x": 1083.42,
+                "y": 725.81,
+                "anchor": "start"
+              },
+              "katsuura": {
+                "x": 1028.44,
+                "y": 841.89,
+                "anchor": "start"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 860.73,
+                "y": 735.18
+              },
+              {
+                "items": [],
+                "x": 898.91,
+                "y": 716.92
+              },
+              {
+                "items": [],
+                "x": 969.91,
+                "y": 763.92
+              },
+              {
+                "items": [],
+                "x": 1000.93,
+                "y": 830.85
+              }
+            ]
+          },
+          "15": {
+            "places": [
+              "katsuura",
+              "nachi",
+              "osaka"
+            ],
+            "labels": {
+              "katsuura": {
+                "x": 1028.44,
+                "y": 841.89,
+                "anchor": "start"
+              },
+              "nachi": {
+                "x": 1067.17,
+                "y": 928.12,
+                "anchor": "start"
+              },
+              "osaka": {
+                "x": 766.47,
+                "y": 342.88,
+                "anchor": "end"
+              }
+            },
+            "transport": [
+              {
+                "items": [],
+                "x": 962.81,
+                "y": 850
+              },
+              {
+                "items": [],
+                "x": 863.82,
+                "y": 600.5
+              }
+            ]
+          }
+        }
+      }
+    ]
   }
 }
