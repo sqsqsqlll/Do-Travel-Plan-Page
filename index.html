@@ -13,7 +13,7 @@
   <script src="runtime-storage.js?v=20260910-2" defer></script>
   <script src="overview-map.js?v=20260910-2" defer></script>
   <script src="route-ui.js?v=20260910-2" defer></script>
-  <script src="trip-loader.js?v=20261015-1" defer></script>
+  <script src="trip-loader.js?v=20261015-2" defer></script>
   <script src="app.js?v=20261015-1" defer></script>
   <script src="ticket-pdf-preview.js?v=20260910-2" defer></script>
   <script src="ledger.js?v=20260910-3" defer></script>
@@ -35,6 +35,7 @@
         </div>
       </details>
       <a class="primary-navigation__ledger" id="ledger-navigation-link" href="#ledger" data-module="ledger" hidden>记账</a>
+      <a class="primary-navigation__ledger" id="external-ledger-link" href="https://sqsqsqlll.github.io/travelexpensesssss/" target="_blank" rel="noopener" hidden>记账 ↗</a>
     </nav>
   </header>
 
@@ -141,6 +142,22 @@
         <button type="submit">添加</button>
       </form>
       <div class="todo-list" id="todo-list"></div>
+    </section>
+
+    <section class="section ledger-bridge" id="ledger-bridge" aria-labelledby="ledger-bridge-title" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">EXPENSES</p>
+          <h2 id="ledger-bridge-title">记账与分摊</h2>
+        </div>
+      </div>
+      <div class="trip-loader__card">
+        <p class="trip-loader__status" id="ledger-bridge-text"></p>
+        <div class="trip-loader__actions">
+          <a class="trip-loader__button" id="ledger-bridge-open" href="https://sqsqsqlll.github.io/travelexpensesssss/" target="_blank" rel="noopener">💰 打开本行程的记账 ↗</a>
+        </div>
+        <p class="trip-loader__tip">账本支持多币种、按比例 / 按金额分摊、最少转账结算，以及预算、比价、地点库和统计。账目只记在账本里，本页不重复记账。</p>
+      </div>
     </section>
 
     <footer class="footer">

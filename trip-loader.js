@@ -72,7 +72,36 @@
     repository: ["已发布", "is-repo", "正在显示网站发布的行程（仓库中的 trip-data.json），所有人打开网址看到的都是这一份。也可以导入其他行程在本机查看。"]
   };
 
+  var DEFAULT_LEDGER_APP = "https://sqsqsqlll.github.io/travelexpensesssss/";
+
+  /* 记账统一在 旅游AA账本：本页记账模块关闭时，显示跳转入口。
+     已发布的行程会把 trip-data.json 的地址带给账本（?tripPage=），账本自动建好行程并进入记账。 */
+  function setupLedgerBridge(data, source) {
+    var modules = (data && data.config && data.config.modules) || {};
+    var section = document.getElementById("ledger-bridge");
+    var navLink = document.getElementById("external-ledger-link");
+    if (!section || !navLink || modules.ledger) return;
+    var base = (data.metadata && data.metadata.ledgerAppUrl) || DEFAULT_LEDGER_APP;
+    var url = base;
+    var text;
+    if (source === "repository") {
+      var tripUrl = new URL("trip-data.json", window.location.href).href;
+      url = base + (base.indexOf("?") >= 0 ? "&" : "?") + "tripPage=" + encodeURIComponent(tripUrl);
+      text = "这趟行程的花费记在「旅游AA账本」里。点下面的按钮，账本会自动建好「" + (data.metadata.title || "本行程") +
+        "」，住宿、门票、航班会变成预算项，然后直接进入记账；之后再点会直接打开这个行程。";
+    } else {
+      text = "这趟行程的花费记在「旅游AA账本」里。当前显示的是" + (source === "demo" ? "示例" : "本机导入的") +
+        "行程：先点上方「📤 导出当前行程」下载文件，再在账本「⚙ 管理 → 📥 从行程页导入」选择它，就能为这趟行程记账。";
+    }
+    navLink.href = url;
+    navLink.hidden = false;
+    document.getElementById("ledger-bridge-open").href = url;
+    document.getElementById("ledger-bridge-text").textContent = text;
+    section.hidden = false;
+  }
+
   function setup(data) {
+    setupLedgerBridge(data, window.TRIP_DATA_SOURCE || "repository");
     var section = document.getElementById("trip-loader");
     if (!section) return;
     var source = window.TRIP_DATA_SOURCE || "repository";
