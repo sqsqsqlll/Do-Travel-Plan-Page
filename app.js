@@ -760,7 +760,12 @@ async function loadSharedState() {
   state.todos = Array.isArray(todoSnapshot.todos) ? todoSnapshot.todos : [];
   state.purchasedTickets = new Set((Array.isArray(ticketSnapshot.tickets) ? ticketSnapshot.tickets : []).filter((item) => item.completed).map((item) => item.id));
   const authoredTodos = state.data.preTrip?.todoItems || state.data.preTrip?.packingItems || [];
-  if (todoAdapter?.mode === "local" && !hasLocalTodoSnapshot && !state.todos.length && authoredTodos.length) {
+  const todoSeedKey = `travel-plan:todo-seeded:${state.data.metadata.tripId}`;
+  let todoSeededHere = false;
+  try { todoSeededHere = localStorage.getItem(todoSeedKey) === "1"; } catch {}
+  const seedCloudTodos = todoAdapter?.mode === "d1" && !state.todos.length && !todoSeededHere;
+  if (authoredTodos.length && !state.todos.length && (seedCloudTodos || (todoAdapter?.mode === "local" && !hasLocalTodoSnapshot))) {
+    try { localStorage.setItem(todoSeedKey, "1"); } catch {}
     state.todos = authoredTodos.map((item, index) => ({
       id: String(item.id || `todo-initial-${index + 1}`),
       text: String(item.text || item.title || "").trim(),
@@ -980,11 +985,48 @@ async function loadTripData() {
   return repository;
 }
 
+/* 云端同步探测：配置为 d1 但接口不可用（例如仍托管在 GitHub Pages、或 D1 未绑定）时，退回本机保存，页面照常可用 */
+async function resolvePersistence() {
+  const persistence = state.config.persistence || { mode: "local" };
+  window.TRIP_SYNC_STATUS = persistence.mode === "d1" ? "checking" : "local";
+  if (persistence.mode !== "d1") return;
+  const tripId = state.data.metadata.tripId;
+  const url = `${String(persistence.apiBase || "/api/trip").replace(/\/+$/, "")}/${encodeURIComponent(tripId)}?collections=todos`;
+  let ok = false;
+  try {
+    const controller = typeof AbortController === "function" ? new AbortController() : null;
+    const timer = controller ? setTimeout(() => controller.abort(), 6000) : null;
+    const response = await fetch(url, { cache: "no-store", signal: controller?.signal });
+    if (timer) clearTimeout(timer);
+    ok = response.ok && /json/i.test(response.headers.get("content-type") || "");
+    if (ok) await response.json();
+  } catch (error) {
+    ok = false;
+  }
+  if (ok) {
+    window.TRIP_SYNC_STATUS = "cloud";
+    return;
+  }
+  console.warn("Cloud sync API unavailable; falling back to local storage for this visit.");
+  window.TRIP_SYNC_STATUS = "fallback";
+  state.config = { ...state.config, persistence: { mode: "local" } };
+  window.TRAVEL_PLAN_CONFIG = state.config;
+}
+
+/* 本机保存时向浏览器申请持久存储，降低被自动清理的概率（Safari / 存储空间紧张时） */
+function requestPersistentStorage() {
+  try {
+    if (navigator.storage?.persist) navigator.storage.persist().catch(() => {});
+  } catch {}
+}
+
 async function init() {
   try {
     state.data = await loadTripData();
     state.config = normalizeTripConfig(state.data.config);
     window.TRAVEL_PLAN_CONFIG = state.config;
+    await resolvePersistence();
+    if (state.config.persistence.mode === "local") requestPersistentStorage();
     window.TRAVEL_PLAN_DATA = state.data;
     document.dispatchEvent(new CustomEvent("travel-data-ready", { detail: state.data }));
     applyModuleConfig();
@@ -1010,7 +1052,7 @@ async function init() {
     if (moduleEnabled("driving")) renderRental();
     if (moduleEnabled("todo")) renderTravelPrep();
     if (moduleEnabled("ledger")) {
-      await window.TravelLedger?.init?.({ tripId: state.data.metadata.tripId, config: state.config });
+      await window.TravelLedger?.init?.({ tripId: state.data.metadata.tripId, config: state.config, seed: state.data.ledgerSeed });
     }
     startCountdowns();
   } catch (error) {
