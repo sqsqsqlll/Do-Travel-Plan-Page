@@ -470,3 +470,9 @@ button:focus-visible,a:focus-visible {outline:2px solid var(--lake);outline-offs
 .trip-loader__help-body a { color: var(--lake); font-weight: 650; }
 .trip-loader__help code { background: var(--lake-soft); padding: 1px 6px; border-radius: 6px; font-size: 12.5px; }
 .trip-loader__tip { margin: 8px 0 0; padding: 8px 10px; border-radius: 10px; background: var(--paper); color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+/* 同步状态（trip-loader.js） */
+.trip-loader__sync { margin: -6px 0 14px; padding: 8px 10px; border-radius: 10px; font-size: 13px; line-height: 1.6; }
+.trip-loader__sync.is-cloud { background: #e3ece4; color: var(--forest); }
+.trip-loader__sync.is-warn { background: #f6e7dc; color: var(--terracotta); }
+.trip-loader__sync.is-local { background: var(--paper); color: var(--muted); }

@@ -72,7 +72,23 @@
     repository: ["已发布", "is-repo", "正在显示网站发布的行程（仓库中的 trip-data.json），所有人打开网址看到的都是这一份。也可以导入其他行程在本机查看。"]
   };
 
+  var SYNC_TEXT = {
+    cloud: ["is-cloud", "☁️ 云端同步已开启：待办、门票状态和记账保存在云端，换手机、换浏览器或同行人打开这个网址，看到的都是同一份。"],
+    fallback: ["is-warn", "⚠️ 云端同步暂未连接，这次的改动先保存在这台设备的浏览器里。网站迁移到 Cloudflare Pages 并绑定 D1 数据库后会自动开启同步。"],
+    local: ["is-local", "💾 待办、门票状态和记账保存在这台设备的浏览器里（换设备不会同步）。"]
+  };
+
+  function setupSyncStatus() {
+    var el = document.getElementById("trip-sync-status");
+    if (!el) return;
+    var item = SYNC_TEXT[window.TRIP_SYNC_STATUS] || SYNC_TEXT.local;
+    el.className = "trip-loader__sync " + item[0];
+    el.textContent = item[1];
+    el.hidden = false;
+  }
+
   function setup(data) {
+    setupSyncStatus();
     var section = document.getElementById("trip-loader");
     if (!section) return;
     var source = window.TRIP_DATA_SOURCE || "repository";

@@ -9,11 +9,17 @@
       "itinerary": true,
       "todo": true,
       "driving": false,
-      "ledger": false
+      "ledger": true
     },
     "language": "zh-CN",
     "persistence": {
-      "mode": "local"
+      "mode": "d1",
+      "apiBase": "/api/trip",
+      "sharedCollections": [
+        "todos",
+        "tickets",
+        "ledger"
+      ]
     }
   },
   "metadata": {
@@ -2360,6 +2366,249 @@
             ]
           }
         }
+      }
+    ]
+  },
+  "ledgerSeed": {
+    "id": "csv-20261028",
+    "source": "旅游AA账本_2026年关西熊野_20261028.csv",
+    "settings": {
+      "baseCurrency": "CNY",
+      "commonCurrencies": [
+        "JPY",
+        "TWD"
+      ],
+      "lastCurrency": "JPY"
+    },
+    "travelers": [
+      {
+        "id": "person-1",
+        "name": "毛"
+      },
+      {
+        "id": "person-2",
+        "name": "姨"
+      },
+      {
+        "id": "person-3",
+        "name": "钟"
+      },
+      {
+        "id": "person-4",
+        "name": "良"
+      },
+      {
+        "id": "person-5",
+        "name": "郑"
+      }
+    ],
+    "bills": [
+      {
+        "id": "bill-csv-01",
+        "originalAmountCents": 328794,
+        "baseAmountCents": 328794,
+        "currency": "CNY",
+        "category": "住宿",
+        "note": "熊野川汤-绿屋山水馆 · 含早餐晚餐 · 待确认",
+        "orderedAt": "2026-12-12T12:00",
+        "payerId": "person-1",
+        "participantIds": [
+          "person-1",
+          "person-2",
+          "person-3",
+          "person-4"
+        ],
+        "createdAt": "2026-12-12T12:00:00.000Z",
+        "updatedAt": "2026-10-28T00:00:00.000Z"
+      },
+      {
+        "id": "bill-csv-02-0",
+        "originalAmountCents": 69408,
+        "baseAmountCents": 69408,
+        "currency": "CNY",
+        "category": "住宿",
+        "note": "和歌山城市酒店 · 按比例 姨/毛/钟=1:2:2，拆为 2 笔平均分摊 · 待确认",
+        "orderedAt": "2026-12-11T12:00",
+        "payerId": "person-1",
+        "participantIds": [
+          "person-2",
+          "person-1",
+          "person-3"
+        ],
+        "createdAt": "2026-12-11T12:00:00.000Z",
+        "updatedAt": "2026-10-28T00:00:00.000Z"
+      },
+      {
+        "id": "bill-csv-02-1",
+        "originalAmountCents": 46272,
+        "baseAmountCents": 46272,
+        "currency": "CNY",
+        "category": "住宿",
+        "note": "和歌山城市酒店 · 按比例 姨/毛/钟=1:2:2，拆为 2 笔平均分摊 · 待确认",
+        "orderedAt": "2026-12-11T12:00",
+        "payerId": "person-1",
+        "participantIds": [
+          "person-1",
+          "person-3"
+        ],
+        "createdAt": "2026-12-11T12:00:00.000Z",
+        "updatedAt": "2026-10-28T00:00:00.000Z"
+      },
+      {
+        "id": "bill-csv-03",
+        "originalAmountCents": 2122800,
+        "baseAmountCents": 445788,
+        "currency": "TWD",
+        "category": "交通",
+        "note": "租车-12/2 8am德岛-12/8 8pm京都JR",
+        "orderedAt": "2026-12-02T12:00",
+        "payerId": "person-5",
+        "participantIds": [
+          "person-3",
+          "person-5",
+          "person-2",
+          "person-1",
+          "person-4"
+        ],
+        "createdAt": "2026-12-02T12:00:00.000Z",
+        "updatedAt": "2026-10-28T00:00:00.000Z"
+      },
+      {
+        "id": "bill-csv-04",
+        "originalAmountCents": 974400,
+        "baseAmountCents": 42094,
+        "currency": "JPY",
+        "category": "住宿",
+        "note": "德岛-Agoda-大和酒店-姨 · 待确认",
+        "orderedAt": "2026-12-01T12:00",
+        "payerId": "person-1",
+        "participantIds": [
+          "person-2"
+        ],
+        "createdAt": "2026-12-01T12:00:00.000Z",
+        "updatedAt": "2026-10-28T00:00:00.000Z"
+      },
+      {
+        "id": "bill-csv-05",
+        "originalAmountCents": 2670500,
+        "baseAmountCents": 115366,
+        "currency": "JPY",
+        "category": "住宿",
+        "note": "德岛-Agoda-大和酒店 · 待确认",
+        "orderedAt": "2026-12-01T12:00",
+        "payerId": "person-1",
+        "participantIds": [
+          "person-1",
+          "person-3",
+          "person-5",
+          "person-4"
+        ],
+        "createdAt": "2026-12-01T12:00:00.000Z",
+        "updatedAt": "2026-10-28T00:00:00.000Z"
+      },
+      {
+        "id": "bill-csv-06",
+        "originalAmountCents": 146100,
+        "baseAmountCents": 146100,
+        "currency": "CNY",
+        "category": "住宿",
+        "note": "大阪住宿-Montana Wing Yebisu 12/14-12/16",
+        "orderedAt": "2026-10-27T12:00",
+        "payerId": "person-1",
+        "participantIds": [
+          "person-3",
+          "person-2",
+          "person-1",
+          "person-4"
+        ],
+        "createdAt": "2026-10-27T12:00:00.000Z",
+        "updatedAt": "2026-10-28T00:00:00.000Z"
+      },
+      {
+        "id": "bill-csv-07",
+        "originalAmountCents": 239167,
+        "baseAmountCents": 239167,
+        "currency": "CNY",
+        "category": "住宿",
+        "note": "纪伊胜浦-龟之井12/13-12/14 · 含晚餐早餐",
+        "orderedAt": "2026-10-01T12:00",
+        "payerId": "person-1",
+        "participantIds": [
+          "person-3",
+          "person-2",
+          "person-1",
+          "person-4"
+        ],
+        "createdAt": "2026-10-01T12:00:00.000Z",
+        "updatedAt": "2026-10-28T00:00:00.000Z"
+      },
+      {
+        "id": "bill-csv-08",
+        "originalAmountCents": 4698600,
+        "baseAmountCents": 986706,
+        "currency": "TWD",
+        "category": "住宿",
+        "note": "京都 airbnb - 12/6-12/11 · 待确认",
+        "orderedAt": "2026-10-01T12:00",
+        "payerId": "person-5",
+        "participantIds": [
+          "person-3",
+          "person-5",
+          "person-2",
+          "person-1",
+          "person-4"
+        ],
+        "createdAt": "2026-10-01T12:00:00.000Z",
+        "updatedAt": "2026-10-28T00:00:00.000Z"
+      },
+      {
+        "id": "bill-csv-09",
+        "originalAmountCents": 1212500,
+        "baseAmountCents": 254625,
+        "currency": "TWD",
+        "category": "住宿",
+        "note": "神户airbnb- KB45 12/2-12/4 · 郑已付-TWD12125",
+        "orderedAt": "2026-10-01T12:00",
+        "payerId": "person-5",
+        "participantIds": [
+          "person-3",
+          "person-5",
+          "person-2",
+          "person-1",
+          "person-4"
+        ],
+        "createdAt": "2026-10-01T12:00:00.000Z",
+        "updatedAt": "2026-10-28T00:00:00.000Z"
+      },
+      {
+        "id": "bill-csv-10",
+        "originalAmountCents": 241400,
+        "baseAmountCents": 241400,
+        "currency": "CNY",
+        "category": "交通",
+        "note": "姨-机票",
+        "orderedAt": "2026-09-27T12:00",
+        "payerId": "person-1",
+        "participantIds": [
+          "person-2"
+        ],
+        "createdAt": "2026-09-27T12:00:00.000Z",
+        "updatedAt": "2026-10-28T00:00:00.000Z"
+      },
+      {
+        "id": "bill-csv-11-0",
+        "originalAmountCents": 693000,
+        "baseAmountCents": 693000,
+        "currency": "CNY",
+        "category": "交通",
+        "note": "MHL机票 · 按金额：毛 6930.00 / 钟 0.00",
+        "orderedAt": "2026-09-27T12:00",
+        "payerId": "person-1",
+        "participantIds": [
+          "person-1"
+        ],
+        "createdAt": "2026-09-27T12:00:00.000Z",
+        "updatedAt": "2026-10-28T00:00:00.000Z"
       }
     ]
   }

@@ -1840,6 +1840,31 @@
     }
   }
 
+  /* 行程文件可附带初始账目（ledgerSeed）：账本为空且读取成功时写入一次（本机或云端），之后不再重复写入 */
+  async function applySeedIfEmpty(seed) {
+    if (!seed || typeof seed !== "object") return;
+    if (ledgerData.travelers.length || ledgerData.bills.length) return;
+    const seedKey = `travel-plan:ledger-seeded:${ledgerTripId}:${String(seed.id || "default")}`;
+    try {
+      if (globalThis.localStorage?.getItem(seedKey) === "1") return;
+    } catch {}
+    const next = normalizeData({
+      settings: { ...ledgerData.settings, ...(seed.settings || {}) },
+      travelers: seed.travelers || [],
+      bills: seed.bills || []
+    });
+    if (!next.travelers.length) return;
+    next.updatedAt = new Date().toISOString();
+    try {
+      await Promise.resolve(ledgerAdapter.save(next, { tripId: ledgerTripId }));
+      ledgerData = normalizeData(next);
+      try { globalThis.localStorage?.setItem(seedKey, "1"); } catch {}
+      notice = `已载入行程的初始账目：${ledgerData.travelers.length} 位成员、${ledgerData.bills.length} 笔账单。`;
+    } catch (error) {
+      console.error("TravelLedger could not write seed data", error);
+    }
+  }
+
   async function init(options = {}) {
     const requestedRoot = typeof options.root === "string"
       ? document.querySelector(options.root)
@@ -1862,15 +1887,18 @@
       ? String(ledgerAdapter.mode || "custom")
       : persistence.mode;
     let stored = null;
+    let loadFailed = false;
     try {
       stored = await Promise.resolve(ledgerAdapter.load({ tripId: ledgerTripId }));
     } catch (error) {
+      loadFailed = true;
       console.error("TravelLedger could not load data", error);
       notice = ledgerPersistenceMode === "d1"
         ? "共享账本暂时无法读取，请检查你的 Cloudflare D1 配置。"
         : "本地账本暂时无法读取，已打开一份空账本。";
     }
     ledgerData = normalizeData(stored);
+    if (!loadFailed) await applySeedIfEmpty(options.seed);
     activeTab = location.hash === "#ledger-stats" ? "stats" : "entry";
     ledgerRoot.addEventListener("click", handleRootClick);
     ledgerRoot.addEventListener("input", handleRootInput);
