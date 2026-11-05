@@ -476,3 +476,23 @@ button:focus-visible,a:focus-visible {outline:2px solid var(--lake);outline-offs
 .trip-loader__sync.is-cloud { background: #e3ece4; color: var(--forest); }
 .trip-loader__sync.is-warn { background: #f6e7dc; color: var(--terracotta); }
 .trip-loader__sync.is-local { background: var(--paper); color: var(--muted); }
+
+/* ---------- 行程 ↔ 账本联动、地图信息、门票信息 ---------- */
+.primary-navigation__ledger-app { color: var(--ink) !important; }
+.place-facts, .ticket-facts { display: flex; flex-wrap: wrap; gap: 4px 10px; margin: 6px 0 2px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.place-facts b { color: var(--ink); font-weight: 650; width: 100%; }
+.place-facts__rating { color: #9a6a12; font-weight: 650; }
+.place-facts small, .ticket-facts small { color: var(--muted); font-weight: 400; }
+.place-facts__hours { width: 100%; }
+.place-facts__hours summary { cursor: pointer; color: var(--lake, #2f6f7e); }
+.place-facts__hours div { padding-left: 2px; }
+.ticket-facts { width: 100%; margin: 6px 0 0; padding-top: 6px; border-top: 1px dashed var(--line); }
+.ticket-facts a { color: var(--lake, #2f6f7e); }
+.travel-next { margin-top: 8px; padding: 4px 8px; border-left: 2px solid var(--line); color: var(--muted); font-size: 12px; }
+.ledger-chip { display: inline-flex; align-items: center; min-height: 32px; padding: 0 10px; border: 1px solid #e3c98e; border-radius: 999px; background: #fff8e8; color: #7a5410; font-size: 12px; font-weight: 650; text-decoration: none; }
+.ledger-chip.is-paid { border-color: #9cc9ae; background: #eef8f1; color: #23613d; }
+.ledger-chip.is-partial { border-color: #c9d79c; background: #f6f9e9; color: #556218; }
+.ledger-day-summary { display: block; margin: 10px 0 0; padding: 8px 10px; border-radius: 10px; background: #fff8e8; color: #7a5410; font-size: 12px; font-weight: 650; text-decoration: none; }
+.schedule-item.is-focused { outline: 2px solid #e3a33a; outline-offset: 4px; border-radius: 8px; transition: outline-color .3s; }
+#ledger-app-link[hidden] { display: none !important; }
+.schedule-ticket .ticket-facts { grid-column: 1 / -1; }

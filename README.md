@@ -147,3 +147,8 @@ Cloudflare D1 只在需要多人 / 多设备共享记账、To Do、Ticket 等数
 ## License
 
 MIT
+
+
+## 与旅游AA账本联动
+
+行程页发布在 `https://travel.sqsqsq.online/plan/`（随账本仓库的阿里云 OSS 部署一起发布），每个行程项目旁显示账本里的预算 / 已付金额，可来回跳转；地图信息与门票票价、购票窗口字段见 [references/ledger-link-zh.md](references/ledger-link-zh.md)。
