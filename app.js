@@ -440,6 +440,7 @@ function inlineTicketMarkup(ticket) {
         </span>
       </label>
       <button type="button" class="schedule-ticket__open" data-ticket-open="${escapeHtml(ticket.id)}" aria-haspopup="dialog" aria-controls="ticket-dialog">查看</button>
+      ${window.LedgerLink ? window.LedgerLink.ticketInfoMarkup(ticket) : ""}
     </div>`;
 }
 
@@ -453,13 +454,19 @@ function dayCard(day) {
       <button type="button" class="schedule-map-link" data-map-query="${escapeHtml(destination.query)}" data-map-url="${escapeHtml(destination.url || "")}" data-map-label="${escapeHtml(destination.label)}" aria-haspopup="dialog" aria-controls="place-map" aria-label="查看 ${escapeHtml(destination.label)} 的地图">📍 ${escapeHtml(destination.label)}</button>
     `).join("");
     const scheduleTickets = ticketsForSchedule(day, item).map(inlineTicketMarkup).join("");
+    const link = window.LedgerLink;
+    const placeFacts = link ? link.placeInfoMarkup(day, item, state.data) : "";
+    const ledgerChip = link && state.ledgerSnapshot ? link.itemLedgerMarkup(state.data, state.ledgerSnapshot, item) : "";
+    const travelNext = link ? link.travelMarkup(item) : "";
     return `
-      <li class="schedule-item">
+      <li class="schedule-item"${item.id ? ` id="item-${escapeHtml(item.id)}"` : ""}>
         <span class="schedule-time">${escapeHtml(item.time)}</span>
         <div class="schedule-content">
           <div class="schedule-text">${escapeHtml(item.text)}</div>
+          ${placeFacts}
           ${scheduleTickets}
-          ${mapLinks ? `<div class="schedule-map-links">${mapLinks}</div>` : ""}
+          ${mapLinks || ledgerChip ? `<div class="schedule-map-links">${mapLinks}${ledgerChip}</div>` : ""}
+          ${travelNext}
         </div>
       </li>
     `;
@@ -486,6 +493,7 @@ function dayCard(day) {
       <div class="day-detail" id="day-detail-${day.day}" ${expanded ? "" : "hidden"}>
         <ol class="schedule">${schedule}</ol>
         ${costs ? `<div class="costs">${costs}</div>` : ""}
+        ${window.LedgerLink && state.ledgerSnapshot ? window.LedgerLink.dayLedgerMarkup(state.data, state.ledgerSnapshot, day) : ""}
         ${notes.map((note) => `<p class="detail-note">${escapeHtml(note)}</p>`).join("")}
       </div>
     </article>
@@ -564,9 +572,28 @@ function currentTripDay() {
   return state.data.days.find((day) => day.date === today)?.day || null;
 }
 
-function renderTimeline() {
+function refreshLedgerSnapshot() {
+  state.ledgerSnapshot = window.LedgerLink ? window.LedgerLink.snapshot(state.data.metadata?.tripId || "") : null;
+}
+
+/* 账本在同域另一个标签页里改动时（storage 事件）或切回本页时，刷新各项目旁的预算 / 已付金额 */
+function setupLedgerLinkRefresh() {
+  if (!window.LedgerLink) return;
+  let timer = null;
+  const refresh = () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => renderTimeline({ keepExpanded: true }), 150);
+  };
+  window.addEventListener("storage", (event) => {
+    if (!event.key || /^aal(\$|tripsrc\$)/.test(event.key)) refresh();
+  });
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) refresh(); });
+}
+
+function renderTimeline(options = {}) {
   const today = currentTripDay();
-  state.expandedDay = today;
+  if (!options.keepExpanded) state.expandedDay = today;
+  refreshLedgerSnapshot();
   $("#day-count").textContent = `${state.data.days.length} DAYS`;
   $("#timeline").innerHTML = state.data.days.map(dayCard).join("");
   $("#timeline").onclick = (event) => {
@@ -1048,7 +1075,11 @@ async function init() {
         state.purchasedTickets = new Set();
       }
     }
-    if (moduleEnabled("itinerary")) renderTimeline();
+    if (moduleEnabled("itinerary")) {
+      renderTimeline();
+      setupLedgerLinkRefresh();
+      window.LedgerLink?.focusFromHash();
+    }
     if (moduleEnabled("driving")) renderRental();
     if (moduleEnabled("todo")) renderTravelPrep();
     if (moduleEnabled("ledger")) {
