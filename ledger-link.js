@@ -67,7 +67,12 @@
   }
 
   function ledgerSnapshot(tripId) {
-    const ledgerTripId = storage()?.getItem(LEDGER_PREFIX.tripSource + tripId) || "";
+    /* 对应关系：账本记在本机的映射；没有时按行程备注里的「#<行程页 id>」找（随账本云端同步到所有设备） */
+    let ledgerTripId = storage()?.getItem(LEDGER_PREFIX.tripSource + tripId) || "";
+    if (!ledgerTripId && tripId) {
+      const tagged = listByPrefix("aal$x$").find((t) => String(t?.note || "").includes(`#${tripId}`));
+      ledgerTripId = tagged?.id || "";
+    }
     if (!ledgerTripId) return { linked: false, budgets: [], txnById: {}, base: baseCurrencyCode() };
     const budgets = listByPrefix(LEDGER_PREFIX.budget).filter((b) => b && b.trip === ledgerTripId);
     const txnById = {};
